@@ -1,0 +1,9 @@
+<%= form_for ([@event, @ride]), url: wizard_path, method: :put do |f| %>
+    <%= f.label :car %>
+    <%= f.association :car %>
+
+    <%= f.label :seats %>
+    <%= f.text_field :seats %>
+
+    <%= f.submit 'Next', name: "next" %>
+<% end %>
