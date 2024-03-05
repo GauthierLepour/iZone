@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(invite_token: params[:invite_token])
+    @event = Event.find_by_invite_token(params[:invite_token])
   end
 
   def new

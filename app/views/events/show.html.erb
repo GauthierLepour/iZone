@@ -3,6 +3,7 @@
     <h1><%= @event.name %></h1>
     <p style="font-size: 14px;">From : <%= @event.start_time.strftime("%B %-d, %H:%M") %> <br> To : <%= @event.end_time.strftime("%B %-d, %H:%M") %></p>
   </div>
+  <%= link_to 'Share', event_invite_link_path(@event), class: "button-classic top-right"%>
 </div>
 
 <div class="event_buttons">
