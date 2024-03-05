@@ -4,7 +4,9 @@
       <%= simple_form_for [@event, @ride], html: { data: {toggle_target: "formAller"} } do |f| %>
           <%= f.input :departure_place %>
           <%= f.input :arrival_place, input_html: { value: @event.address} %>
-          <%= f.datetime_select :departure_time %>
+          <%= f.input :departure_time,
+          as: :string,
+          input_html: { data: { controller: "datepicker"} }%>
           <%= f.input :price %>
           <%= f.association :car, label_method: :to_label%>
           <%= f.submit %>
@@ -14,7 +16,9 @@
       <%= simple_form_for [@event, @ride], html: { class: "d-none", data: {toggle_target: "formRetour"} } do |f| %>
           <%= f.input :departure_place, input_html: { value: @event.address} %>
           <%= f.input :arrival_place %>
-          <%= f.datetime_select :departure_time %>
+          <%= f.input :departure_time,
+          as: :string,
+          input_html: { data: { controller: "datepicker"} }%>
           <%= f.input :price %>
           <%= f.association :car, label_method: :to_label%>
           <%= f.submit %>
