@@ -1,0 +1,25 @@
+.myfooter {
+  position: sticky;
+  bottom: 0;
+  height: 69px;
+  width: 100%;
+  background-color: #363062;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+}
+
+button {
+  padding: 10px;
+  background-color: #818FB4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footericon {
+  display: flex;
+  align-items: center;
+}

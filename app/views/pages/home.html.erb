@@ -1,38 +1,45 @@
 
 
-  <div class="container" >
+<div class="container" >
     <div class="izone flex-container">
       <h1>iZone</h1>
+      <p></p>
       <p>BRINGS PARTICIPANTS TOGETHER</p>
     </div>
 
     <div class="enter-link flex-container">
       <h4>Find an event</h4>
-        <%# <%= render "formsearchlink" %>
+        <p></p>
       <%= form_tag("/submit_link", method: "post") do %>
         <%= text_field_tag(:link, nil, placeholder: "Event link") %>
         <%= submit_tag("Submit") %>
       <% end %>
     </div>
-
+  <hr>
     <div class="create-event flex-container">
-      <h4>Create an event</h4>
-      <%= link_to "Create an event", new_event_path, class: "btn btn-info" %>
-      <%# btn Create an event  %>
+      <h4>Create your event page</h4>
+      <p></p>
+      <%= link_to "Create an event", new_event_path, class: "button-classic" %>
     </div>
-
+  <hr>
     <div class="eplanation flex-container">
       <h4>iZone, easy and quick!</h4>
-      <p>I create my event</p>
-      <p>I share my event with my guests</p>
-      <p>They meet on the road to make the journey together</p>
+      <i class="fa-solid fa-calendar-days"></i><p>I create my event</p>
+      <i class="fa-solid fa-envelope"></i><p>I share my event with my guests</p>
+      <i class="fa-solid fa-location-dot"></i> <i class="fa-solid fa-car"></i><p>They meet on the road to make the journey together</p>
     </div>
-
+  <hr>
     <div class="extra-info flex-container">
       <h4>Our advantages</h4>
-      <p>Let see easily who is a driver and who is a passenger, with departure time and zone</p>
+      <p></p>
+      <p> Let see easily who is a driver and who is a passenger, with departure time and zone</p>
       <p>Shares eventual fees </p>
       <p>Less pollution & trafic </p>
       <p>Meet people from same events </p>
     </div>
-  </div>
+  <hr>
+    <div class="follow flex-container">
+          <p>Follow us and see our next events ! </p>
+          <i class="fa-brands fa-instagram"></i>    <i class="fa-brands fa-facebook-f"></i>
+    </div>
+</div>
