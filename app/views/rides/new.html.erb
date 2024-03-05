@@ -12,7 +12,7 @@
           <%= f.submit %>
       <% end %>
     </div>
-    <div class="form">
+    <div class="form" style="margin-left:-120px">
       <%= simple_form_for [@event, @ride], html: { class: "d-none", data: {toggle_target: "formRetour"} } do |f| %>
           <%= f.input :departure_place, input_html: { value: @event.address} %>
           <%= f.input :arrival_place %>
