@@ -7,7 +7,7 @@
 
 <div class="event_buttons">
   <%= link_to 'Search a ride', event_path, class: "event_button" %>
-  <%= link_to 'Offer a ride', event_path, class: "event_button" %>
+  <%= link_to 'Propose your car', current_user.cars.empty? ? new_car_path : new_event_ride_path(@event) %>
 </div>
 
 <div class="event_description">
