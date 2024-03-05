@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_112737) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_145503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_112737) do
   end
 
   create_table "cars", force: :cascade do |t|
-    t.integer "seats"
     t.string "brand"
     t.string "model"
     t.string "color"
@@ -71,6 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_112737) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -103,6 +103,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_112737) do
     t.bigint "car_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "seats"
+    t.string "status"
     t.index ["car_id"], name: "index_rides_on_car_id"
     t.index ["event_id"], name: "index_rides_on_event_id"
   end
