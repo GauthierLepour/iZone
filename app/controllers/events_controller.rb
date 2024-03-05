@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by(invite_token: params[:invite_token])
   end
 
   def new
@@ -22,11 +22,11 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    @event = Event.find_by(invite_token: params[:invite_token])
   end
 
   def update
-    @event = Event.find(params[:id])
+    @event = Event.find_by(invite_token: params[:invite_token])
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    @event = Event.find_by(invite_token: params[:invite_token])
     @event.destroy
     redirect_to event_path, status: :see_other
   end

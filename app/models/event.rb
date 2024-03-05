@@ -2,10 +2,15 @@ class Event < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_many :rides
+  has_secure_token :invite_token
 
   validates :name, :start_time, :end_time, :photo, presence: true
   validates :name, length: { maximum: 20 }
   validate :end_date_after_start_date, :start_date_after_today
+
+  def to_param
+    invite_token
+  end
 
   private
 
