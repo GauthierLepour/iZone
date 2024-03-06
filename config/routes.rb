@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :events do
     resources :rides, only: [:create, :new]
   end
+  resources :rides, only: [:show]
 end

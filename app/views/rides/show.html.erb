@@ -1,0 +1,64 @@
+<div class="container mt-4" >
+
+  <div class="drive-box">
+    <div class="d-flex justify-content-between drive-driver">
+      <div class="d-flex">
+        <div><%= link_to "", new_event_path, class: "button-classic" %></div>
+        <div class="ms-3"><%= @ride.car.user.email %></div>
+      </div>
+      <div><p><%= @ride.price %>$</p></div>
+    </div>
+
+    <div class="container mt-3">
+        <div><i class="fa-solid fa-hand-point-right"></i></div>
+      <div class="d-flex justify-content-between">
+        <div><%= @ride.departure_place %></div>
+        <div> <p> - </p> </div>
+        <div> <%= @ride.arrival_place %></div>
+      </div>
+        <%= @ride.departure_time %>
+        <p> </p>
+    </div>
+
+    <div class="drive"id="drive-apply">
+      <%= link_to "Ask for a seat", new_event_path, class: "button-classic" %>
+    </div>
+
+    <div class="container">
+      <p>Your reservation will be confirmed once the driver accepts your demand</p>
+      <%= link_to "Contact Jin", new_event_path %>
+    </div>
+</div>
+
+  <div class="drive-box">
+    <div class="drive"id="drive-car">
+      <i class="fa-solid fa-car"></i>
+      <%= @ride.car.brand %>
+      <%= @ride.car.model %>
+      <%= @ride.car.color %>
+    </div>
+  </div>
+
+  <div class="drive-box">
+    <div class="drive"id="drive-extrainfo">
+     <p> <i class="fa-solid fa-circle-info"></i>
+       Ok to smoke in my car</p>
+    </div>
+  </div>
+
+  <div class="drive-box">
+    <div class="container d-flex justify-content-between">
+      <div><p>Passengers :</p></div>
+      <div>
+            <p>Johny</p>
+            <p>Peter</p>
+      </div>
+    </div>
+</div>
+
+    <div class="drive"id="drive-extra">
+          <p> <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          Share this drive</p>
+          <p>Signal this drive</p>
+    </div>
+</div>
