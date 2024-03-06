@@ -1,0 +1,13 @@
+<% @events.each do |event| %>
+  <p><%= event.name %></p>
+  <div class="event">
+    <div class="event-info">
+      <div class="d-flex">
+        <div class="div">
+          <%= event.start_time %>
+        </div>
+      </div>
+    </div>
+    <div class="rides-info"></div>
+  </div>
+<% end %>
