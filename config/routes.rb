@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :memberships, only: [:new, :create ]
     resource :invite_link, only: [ :show ]
   end
+  resources :rides, only: [:show]
 end
