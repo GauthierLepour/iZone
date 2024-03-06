@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.where(user: current_user)
+    @my_events = Event.where(user: current_user)
+    @joined_events = Event.all.select { |event| event.users.include?(current_user) }
   end
 
   def show
