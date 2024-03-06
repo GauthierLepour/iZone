@@ -1,0 +1,64 @@
+.ride-list {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ride-list-title {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  border-bottom: 1px solid;
+  padding: 17px;
+  margin-bottom: 20px;
+}
+
+.ride-card{
+  height: 87px;
+  background-color: #818FB4;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 20px;
+  // justify-content: space-between;
+}
+
+.ride-card-picture-container {
+  height: 87px;
+  min-height: 87px;
+  width: 87px;
+  min-width: 87px;
+}
+
+.ride-card-picture {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-top: 4px;
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.ride-card-info {
+  // background-color: rgba(127, 255, 212, 0.174);
+  height: 80px;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.ride-card-info-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

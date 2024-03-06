@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :cars
   resources :events do
-    resources :rides, only: [:create, :new]
+    resources :rides, only: [:index, :create, :new]
   end
 end

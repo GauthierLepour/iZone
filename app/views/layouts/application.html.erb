@@ -12,10 +12,15 @@
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
   </head>
 
-  <body style="min-height: 100vh;"><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+
+  <div>
+  <%= render "shared/navbar" %>
+  <%= render "shared/flashes" %>
 
     <%= yield %>
+
     <%= render "shared/footer" %>
+  </div>
   </body>
 </html>
