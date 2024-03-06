@@ -5,6 +5,7 @@ class MembershipsController < ApplicationController
     if user_signed_in?
       create
     else
+      redirect_to new_user_registration_path(invite_token: params[:event_invite_token])
     end
   end
 
