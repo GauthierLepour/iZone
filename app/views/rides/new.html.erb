@@ -7,6 +7,7 @@
           <%= f.input :departure_time,
           as: :string,
           input_html: { data: { controller: "datepicker"} }%>
+          <%= f.input :seats %>
           <%= f.input :price %>
           <%= f.input :seats %>
           <%= f.association :car, label_method: :to_label%>
@@ -20,6 +21,7 @@
           <%= f.input :departure_time,
           as: :string,
           input_html: { data: { controller: "datepicker"} }%>
+          <%= f.input :seats %>
           <%= f.input :price %>
           <%= f.input :seats %>
           <%= f.association :car, label_method: :to_label%>

@@ -1,4 +1,8 @@
 class RidesController < ApplicationController
+
+  def index
+    @rides = Ride.all
+  end
   def new
     @ride = Ride.new
     @event = Event.find_by(invite_token: params[:event_invite_token])
@@ -15,9 +19,13 @@ class RidesController < ApplicationController
     end
   end
 
+  def show
+    @ride = Ride.find(params[:id])
+  end
+
   private
 
   def ride_params
-    params.require(:ride).permit(:departure_place, :arrival_place, :departure_time, :price, :car_id)
+    params.require(:ride).permit(:departure_place, :arrival_place, :departure_time, :price, :seats, :car_id)
   end
 end

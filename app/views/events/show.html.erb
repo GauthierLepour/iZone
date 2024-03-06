@@ -1,3 +1,4 @@
+<div>
 <div class="event_banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key, class: 'event_banner_image', crop: :fill %>')">
   <div class="event_banner_text">
     <h1><%= @event.name %></h1>
@@ -31,8 +32,8 @@
 </div>
 
 <div class="event_buttons">
-  <%= link_to 'Search a ride', event_path, class: "event_button" %>
-  <%= link_to 'Propose your car', current_user.cars.empty? ? new_car_path : new_event_ride_path(@event), class: "event_button" %>
+  <%= link_to 'Search a ride', event_rides_path(@event), class: "event_button" %>
+  <%= link_to 'Offer a ride', current_user.cars.empty? ? new_car_path : new_event_ride_path(@event), class: "event_button" %>
 </div>
 
 <div class="event_description">
@@ -43,5 +44,5 @@
 <div class="event_display_members">
   <i class="event_display_members_icon fa-regular fa-user"></i>
   <%= link_to "View participants", event_path, class: "event_display_members_button" %>
-
+</div>
 </div>

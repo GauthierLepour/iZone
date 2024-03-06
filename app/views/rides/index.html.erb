@@ -1,0 +1,21 @@
+
+<h3 class="ride-list-title">Available rides</h3>
+<div class="ride-list">
+<% @rides.each do |ride| %>
+  <div class="ride-card">
+    <div class="ride-card-picture-container">
+      <%= cl_image_tag ride.car.user.photo.key, class: "ride-card-picture" %>
+    </div>
+    <div class="ride-card-info">
+      <div>
+        <p class="mb-0"><%= ride.car.user.first_name %> <%= ride.car.user.last_name %></p>
+        <p style="font-size: 11px;"><%= ride.departure_place %></p>
+        <p><i class="fa-solid fa-person"></i> <%= ride.seats %></p>
+      </div>
+      <div>
+      <p class="ride-card-info-price"><%= ride.price %>$</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
