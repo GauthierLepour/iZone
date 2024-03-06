@@ -8,6 +8,7 @@
           as: :string,
           input_html: { data: { controller: "datepicker"} }%>
           <%= f.input :price %>
+          <%= f.input :seats %>
           <%= f.association :car, label_method: :to_label%>
           <%= f.submit %>
       <% end %>
@@ -20,6 +21,7 @@
           as: :string,
           input_html: { data: { controller: "datepicker"} }%>
           <%= f.input :price %>
+          <%= f.input :seats %>
           <%= f.association :car, label_method: :to_label%>
           <%= f.submit %>
       <% end %>
