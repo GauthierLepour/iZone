@@ -1,13 +1,67 @@
-<% @events.each do |event| %>
-  <p><%= event.name %></p>
-  <div class="event">
-    <div class="event-info">
-      <div class="d-flex">
-        <div class="div">
-          <%= event.start_time %>
-        </div>
-      </div>
-    </div>
-    <div class="rides-info"></div>
+<div class="container" data-controller="filter">
+  <div class="filters d-flex justify-content-between">
+    <button class="button-filter me-2" data-action="click->filter#mine">My events</button>
+    <button class="button-filter me-2" data-action="click->filter#joined">Events</button>
+    <button class="button-filter" data-action="click->filter#all">All</button>
   </div>
-<% end %>
+  <div class="my-events" data-filter-target="myEvents">
+    <% @my_events.each do |event| %>
+      <%= link_to event_path(event), style:"text-decoration:none; color:white" do %>
+        <div class="event mt-4 p-2">
+          <div class="event-info mb-2">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-column justify-content-center ms-2">
+                <div><p class="day"><%= event.start_time.day%></p></div>
+                <div><p class="month"><%= event.start_time.strftime('%b') %></p></div>
+              </div>
+              <div class="d-flex flex-column justify-content-between align-items-start" style="margin-left:-100px">
+                <div><p class="title"><%= event.name %></p></div>
+                <div style="margin-bottom: 2px"><em class="hour"><%= event.start_time.strftime('%H:%M') %></em></div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-top: 14px; margin-right: 10px"><p><i class="fa-solid fa-chevron-right"></i></p></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="my-events" data-filter-target="joinedEvents">
+    <% @joined_events.each do |event| %>
+      <%= link_to event_path(event), style:"text-decoration:none; color:white" do %>
+        <div class="event mt-4 p-2">
+          <div class="event-info mb-2">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-column justify-content-center ms-2">
+                <div><p class="day"><%= event.start_time.day%></p></div>
+                <div><p class="month"><%= event.start_time.strftime('%b') %></p></div>
+              </div>
+              <div class="d-flex flex-column justify-content-between align-items-start" style="margin-left:-100px">
+                <div><p class="title"><%= event.name %></p></div>
+                <div style="margin-bottom: 2px"><em class="hour"><%= event.start_time.strftime('%H:%M') %></em></div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-top: 14px; margin-right: 10px"><p><i class="fa-solid fa-chevron-right"></i></p></div>
+            </div>
+          </div>
+          <hr class="mb-3">
+          <div class="rides-info">
+            <% event.rides.select { |ride| ride.car.user == current_user }.each do |ride| %>
+              <div class="d-flex  justify-content-begin">
+                <div class= "ms-2"><p><%= ride.departure_place %></p></div>
+                <div><i class="fa-solid fa-arrow-right" style="margin: 0 50px"></i></div>
+                <div><p><%= ride.arrival_place %></p></div>
+              </div>
+            <% end %>
+            <% event.rides.select { |ride| ride.users.include?(current_user) }.each do |ride| %>
+              <div class="d-flex justify-content-begin">
+                <div class= "ms-2"><p><%= ride.departure_place %></p></div>
+                <div><i class="fa-solid fa-arrow-right"  style="margin: 0 50px"></i></div>
+                <div><p><%= ride.arrival_place %></p></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
