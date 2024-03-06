@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_113313) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_06_131621) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,14 +65,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_113313) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.time "start_time"
-    t.time "end_time"
-    t.string "invite_token"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+    t.string "invite_token"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.index ["invite_token"], name: "index_events_on_invite_token", unique: true
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.string "role"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_memberships_on_event_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -128,6 +140,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_113313) do
   add_foreign_key "cars", "users"
   add_foreign_key "chatrooms", "rides"
   add_foreign_key "events", "users"
+  add_foreign_key "memberships", "events"
+  add_foreign_key "memberships", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "passenger_requests", "rides"

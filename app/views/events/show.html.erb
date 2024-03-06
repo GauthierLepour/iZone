@@ -3,6 +3,31 @@
     <h1><%= @event.name %></h1>
     <p style="font-size: 14px;">From : <%= @event.start_time.strftime("%B %-d, %H:%M") %> <br> To : <%= @event.end_time.strftime("%B %-d, %H:%M") %></p>
   </div>
+  <% if @event.user == current_user%>
+    <button type="button" class="button-small top-right" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Share
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Copy the link:</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+              <div class="d-flex justify-content-between">
+                <input data-clipboard-target="input" style="width: 100%" type="text" value=<%=@link%> readonly>
+                <button class="btn btn-primary ms-1" data-action="click->clipboard#copy"><i class="fa-regular fa-copy"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="event_buttons">
