@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
-  has_many :rides
+  has_many :rides, dependent: :destroy
   has_secure_token :invite_token
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
