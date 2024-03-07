@@ -3,7 +3,7 @@
   <div class="drive-box">
     <div class="d-flex justify-content-between drive-driver">
       <div class="d-flex">
-        <div><%= link_to "", new_event_path, class: "button-classic" %></div>
+        <%= cl_image_tag @ride.car.user.photo.key, class: "ride-card-picture" %>
         <div class="ms-3"><%= @ride.car.user.first_name %> <%= @ride.car.user.last_name %></div>
       </div>
       <div><p><%= @ride.price %>$</p></div>
@@ -61,7 +61,7 @@
 
     <div class="drive-box">
       <div class="container">
-        <div><%= link_to "Contact Jin", new_event_path %></div>
+        <div><%= link_to "Contact #{@ride.car.user.first_name}", new_event_path %></div>
       </div>
     </div>
 </div>
