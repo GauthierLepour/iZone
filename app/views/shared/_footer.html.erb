@@ -1,7 +1,9 @@
 <div class="myfooter">
+    <% if user_signed_in? %>
     <div class="footericon">
-      <button><i class="fa-solid fa-user"></i></button>
+      <%= image_tag current_user.photo, class: "avatar" %>
     </div>
+    <% end %>
     <div class="footericon">
       <%= link_to events_path do %>
         <button><i class="fa-solid fa-calendar-days"></i></button>
