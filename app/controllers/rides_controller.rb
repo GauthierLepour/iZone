@@ -10,12 +10,14 @@ class RidesController < ApplicationController
                           lng: @coordinates[1],
                           marker_html: render_to_string(partial: "rides/marker") }]
     end
-    @markers = @rides.geocoded.map do |ride|
-      {
-        lat: ride.latitude,
-        lng: ride.longitude,
-        info_window_html: render_to_string(partial: "rides/info_window", locals: { ride: ride })
-      }
+    unless @rides.empty?
+      @markers = @rides.geocoded.map do |ride|
+        {
+          lat: ride.latitude,
+          lng: ride.longitude,
+          info_window_html: render_to_string(partial: "rides/info_window", locals: { ride: ride })
+        }
+      end
     end
   end
 
