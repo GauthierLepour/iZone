@@ -8,11 +8,18 @@ class Ride < ApplicationRecord
   geocoded_by :departure_place
   after_validation :geocode, if: :will_save_change_to_departure_place?
 
-  ##if event.address == departure_place
-  ##  geocoded_by :arrival_place
-  ##  after_validation :geocode, if: :will_save_change_to_arrival_place?
-  ##else
-  ##  geocoded_by :departure_place
-  ##  after_validation :geocode, if: :will_save_change_to_departure_place?
-  ##end
+
+  #after_validation :conditionally_geocode
+#
+  #private
+#
+  #def conditionally_geocode
+  #  if event.address == departure_place
+  #    geocoded_by :arrival_place
+  #    geocode if will_save_change_to_arrival_place?
+  #  else
+  #    geocoded_by :departure_place
+  #    geocode if will_save_change_to_departure_place?
+  #  end
+  #end
 end
