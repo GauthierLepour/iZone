@@ -1,8 +1,13 @@
 class RidesController < ApplicationController
-
   def index
+    @event = Event.find_by(invite_token: params[:event_invite_token])
     @rides = Ride.all
+    if params[:query].present? && params[:distance].present?
+      @coordinates = Geocoder.coordinates(params[:query])
+      @rides = Ride.near(@coordinates, params[:distance])
+    end
   end
+
   def new
     @ride = Ride.new
     @event = Event.find_by(invite_token: params[:event_invite_token])
