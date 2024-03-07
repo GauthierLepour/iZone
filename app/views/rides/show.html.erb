@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between drive-driver">
       <div class="d-flex">
         <div><%= link_to "", new_event_path, class: "button-classic" %></div>
-        <div class="ms-3"><%= @ride.car.user.email %></div>
+        <div class="ms-3"><%= @ride.car.user.first_name %> <%= @ride.car.user.last_name %></div>
       </div>
       <div><p><%= @ride.price %>$</p></div>
     </div>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="container">
-      <p>Your reservation will be confirmed once the driver accepts your demand</p>
+    <i><p>Your reservation will be confirmed once the driver accepts your demand</p></i>
       <%= link_to "Contact Jin", new_event_path %>
     </div>
 </div>
@@ -47,7 +47,7 @@
   </div>
 
   <div class="drive-box">
-    <div class="container d-flex justify-content-between">
+    <div class="container d-flex align-items-center justify-content-between">
       <div><p>Passengers :</p></div>
       <div>
             <p>Johny</p>
