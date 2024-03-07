@@ -35,8 +35,8 @@ user3.photo.attach(io: file, filename: "avatar_benjamin.png", content_type: "ima
 user3.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/155843655?v=4')
-user4 = User.create(email: "john@test.com", first_name: "Johnathan", last_name: "ELST", password: "123456")
-user4.photo.attach(io: file, filename: "avatar_johnathan.png", content_type: "image/jpeg")
+user4 = User.create(email: "john@test.com", first_name: "Jonathan", last_name: "ELST", password: "123456")
+user4.photo.attach(io: file, filename: "avatar_jonathan.png", content_type: "image/jpeg")
 user4.save!
 
 file = URI.open('https://del.h-cdn.co/assets/17/07/3200x3200/square-1487365300-delish-ryan-gosling-getty-pascal.jpg')
@@ -67,7 +67,7 @@ event1.photo.attach(io: file, filename: "rabbit_event.png", content_type: "image
 event1.save!
 
 file = URI.open("https://img.freepik.com/free-photo/groom-putting-ring-bride-s-finger_1157-338.jpg")
-event2 = Event.create(name: "Johnathan's wedding",
+event2 = Event.create(name: "Jonathan's wedding",
                       description: "Celebrating our union soon. We'll be exchanging vows, enjoying fantastic food, and dancing the night away.",
                       address: "Avenue of happiness 45",
                       start_time: "2024-03-16 18:00:00",
