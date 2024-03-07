@@ -1,0 +1,7 @@
+<%= link_to ride_path(ride), style:"text-decoration:none; color:black" do %>
+  <div class="d-flex align-items-center">
+    <%= cl_image_tag ride.car.user.photo.key, class: "ride-card-picture-popup" %>
+    <h5><%= "#{ride.car.user.first_name} #{ride.car.user.last_name}" %></h5>
+    <div class="d-flex align-items-center" style="margin-top: 14px; margin-right: 10px"><p><i class="fa-solid fa-chevron-right"></i></p></div>
+  </div>
+<% end %>

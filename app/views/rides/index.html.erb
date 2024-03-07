@@ -1,23 +1,49 @@
-
-<h3 class="ride-list-title">Available rides</h3>
-<div class="ride-list">
-<% @rides.each do |ride| %>
-  <%= link_to ride_path(ride) do %>
-    <div class="ride-card">
-      <div class="ride-card-picture-container">
-        <%= cl_image_tag ride.car.user.photo.key, class: "ride-card-picture" %>
-      </div>
-      <div class="ride-card-info">
-        <div>
-          <p class="mb-0"><%= ride.car.user.first_name %> <%= ride.car.user.last_name %></p>
-          <p style="font-size: 11px;"><%= ride.departure_place %></p>
-          <p><i class="fa-solid fa-person"></i> <%= ride.seats %></p>
+<div class="container">
+  <h3 class="ride-list-title">Filter your search</h3>
+  <div class="d-flex justify-content-center mt-3 mb-3">
+    <%= form_with url: event_rides_path(@event), method: :get, class: "d-flex search-form  form-search" do %>
+      <%= text_field_tag :query,
+              params[:query],
+              class: "form-control input-search",
+              placeholder: "Departure place"
+          %>
+      <%= text_field_tag :distance,
+              params[:distance],
+              class: "form-control input-search",
+              placeholder: "Rayon (km)"
+          %>
+      <%= submit_tag "Search", name: "", class: "button-search input-right" %>
+    <% end %>
+  </div>
+  <div class="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-search-marker-value="<%= @search_marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <h3 class="ride-list-title">Available rides</h3>
+  <div class="ride-list">
+    <% @rides.each do |ride| %>
+      <%= link_to ride_path(ride), style:"text-decoration:none; color:white" do %>
+        <div class="ride-card">
+          <div class="ride-card-picture-container">
+            <%= cl_image_tag ride.car.user.photo.key, class: "ride-card-picture" %>
+          </div>
+          <div class="ride-card-info">
+            <div>
+              <p class="mb-0"><%= ride.car.user.first_name %> <%= ride.car.user.last_name %></p>
+              <% if ride.departure_place == ride.event.address %>
+                <p style="font-size: 11px;"><%= ride.arrival_place %></p>
+              <% else %>
+                <p style="font-size: 11px;"><%= ride.departure_place %></p>
+              <% end %>
+              <p><i class="fa-solid fa-person"></i> <%= ride.seats %></p>
+            </div>
+            <div>
+            <p class="ride-card-info-price"><%= ride.price %>$</p>
+            </div>
+          </div>
         </div>
-        <div>
-        <p class="ride-card-info-price"><%= ride.price %>$</p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
