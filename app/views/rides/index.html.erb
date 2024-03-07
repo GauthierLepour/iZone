@@ -1,19 +1,25 @@
 <div class="container">
-  <div class="d-flex justify-content-center mt-3">
-    <%= form_with url: event_rides_path(@event), method: :get, class: "d-flex search-form" do %>
+  <h3 class="ride-list-title">Filter your search</h3>
+  <div class="d-flex justify-content-center mt-3 mb-3">
+    <%= form_with url: event_rides_path(@event), method: :get, class: "d-flex search-form  form-search" do %>
       <%= text_field_tag :query,
               params[:query],
-              class: "form-control input-left",
+              class: "form-control input-search",
               placeholder: "Departure place"
           %>
       <%= text_field_tag :distance,
               params[:distance],
-              class: "form-control input-left",
-              placeholder: "Rayon"
+              class: "form-control input-search",
+              placeholder: "Rayon (km)"
           %>
       <%= submit_tag "Search", name: "", class: "button-search input-right" %>
     <% end %>
   </div>
+  <div class="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-search-marker-value="<%= @search_marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   <h3 class="ride-list-title">Available rides</h3>
   <div class="ride-list">
     <% @rides.each do |ride| %>
