@@ -10,7 +10,7 @@
           <%= f.input :seats %>
           <%= f.input :price %>
           <%= f.input :seats %>
-          <%= f.association :car, label_method: :to_label%>
+          <%= f.association :car, collection: current_user.cars, label_method: :to_label%>
           <%= f.submit %>
       <% end %>
     </div>
@@ -24,7 +24,7 @@
           <%= f.input :seats %>
           <%= f.input :price %>
           <%= f.input :seats %>
-          <%= f.association :car, label_method: :to_label%>
+          <%= f.association :car, collection: current_user.cars, label_method: :to_label%>
           <%= f.submit %>
       <% end %>
     </div>

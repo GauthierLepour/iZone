@@ -33,7 +33,11 @@
 
 <div class="event_buttons">
   <%= link_to 'Search a ride', event_rides_path(@event), class: "event_button" %>
-  <%= link_to 'Offer a ride', current_user.cars.empty? ? new_car_path : new_event_ride_path(@event), class: "event_button" %>
+  <% if current_user.cars.empty? %>
+    <%= link_to 'Offer a ride', new_car_path, class: "event_button" %>
+  <% else %>
+    <%= link_to 'Offer a ride', new_event_ride_path(@event), class: "event_button" %>
+  <% end %>
 </div>
 
 <div class="event_description">

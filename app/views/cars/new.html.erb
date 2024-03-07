@@ -8,4 +8,7 @@
         <%= f.submit %>
     <% end %>
   </div>
+  <% if current_user.cars.empty? %>
+    <% flash[:notice] = "You first need to create a car in order to offer a ride." %>
+  <% end %>
 </div>
