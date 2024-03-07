@@ -3,31 +3,34 @@
   <div class="drive-box">
     <div class="d-flex justify-content-between drive-driver">
       <div class="d-flex">
-        <div><%= link_to "", new_event_path, class: "button-classic" %></div>
+        <%= cl_image_tag @ride.car.user.photo.key, class: "ride-card-picture" %>
         <div class="ms-3"><%= @ride.car.user.first_name %> <%= @ride.car.user.last_name %></div>
       </div>
       <div><p><%= @ride.price %>$</p></div>
     </div>
 
     <div class="container mt-3">
-        <div><i class="fa-solid fa-hand-point-right"></i></div>
       <div class="d-flex justify-content-between">
         <div><%= @ride.departure_place %></div>
-        <div> <p> - </p> </div>
+        <div> <i class="fa-solid fa-arrow-right"></i> </div>
         <div> <%= @ride.arrival_place %></div>
       </div>
-        <%= @ride.departure_time %>
         <p> </p>
     </div>
 
-    <div class="drive"id="drive-apply">
-      <%= link_to "Ask for a seat", new_event_path, class: "button-classic" %>
+    <div class="container mb-5">
+        <%= @ride.departure_time %>
     </div>
 
-    <div class="container">
-    <i><p>Your reservation will be confirmed once the driver accepts your demand</p></i>
-      <%= link_to "Contact Jin", new_event_path %>
+      <div class="container mt-5 d-flex justify-content-between">
+        <div><%= link_to "Ask for your seat(s)", new_event_path, class:"nice-link"%></div>
+      </div>
+
+    <div class="container mt-3">
+      <small><i><p>Your reservation will be confirmed once the driver accepts your demand</p></i></small>
     </div>
+
+
 </div>
 
   <div class="drive-box">
@@ -42,7 +45,7 @@
   <div class="drive-box">
     <div class="drive"id="drive-extrainfo">
      <p> <i class="fa-solid fa-circle-info"></i>
-       Ok to smoke in my car</p>
+             <%= @ride.description %></p>
     </div>
   </div>
 
@@ -54,11 +57,11 @@
             <p>Peter</p>
       </div>
     </div>
-</div>
+  </div>
 
-    <div class="drive"id="drive-extra">
-          <p> <i class="fa-solid fa-arrow-up-from-bracket"></i>
-          Share this drive</p>
-          <p>Signal this drive</p>
+    <div class="drive-box">
+      <div class="container">
+        <div><%= link_to "Contact #{@ride.car.user.first_name}", new_event_path %></div>
+      </div>
     </div>
 </div>
