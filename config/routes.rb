@@ -8,7 +8,7 @@ Rails.application.routes.draw do
         get :back
       end
     end
-    resources :memberships, only: [:new, :create ]
+    resources :memberships, only: [:index, :new, :create ]
     resource :invite_link, only: [ :show ]
   end
   resources :rides, only: [:show] do
