@@ -1,23 +1,23 @@
 <div class="myfooter">
 
-    <div class="footericon">
+    <div class="footericon home-icon">
       <%= link_to "/", class: "navbar-brand" do %>
       <i class="fa-solid fa-house icone-button"></i>
     <% end %>
+    </div>
 
-    </div>
     <% if user_signed_in? %>
-    <div class="footericon">
-      <%= link_to events_path do %>
-      <i class="fa-solid fa-calendar-days icone-button"></i>
-      <% end %>
-    </div>
-    <div class="footericon">
-      <i class="fa-solid fa-bell icone-button"></i>
-    </div>
-    <div class="footericon">
-      <i class="fa-solid fa-envelope icone-button"></i>
-    </div>
+      <div class="footericon">
+        <%= link_to events_path do %>
+        <i class="fa-solid fa-calendar-days icone-button"></i>
+        <% end %>
+      </div>
+      <div class="footericon">
+        <i class="fa-solid fa-bell icone-button"></i>
+      </div>
+      <div class="footericon">
+        <i class="fa-solid fa-envelope icone-button"></i>
+      </div>
     <% end %>
 </div>
 
