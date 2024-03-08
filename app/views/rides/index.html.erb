@@ -3,14 +3,10 @@
   <div class="d-flex" data-controller="toggle">
     <div class=" mt-3 mb-3 search-form">
       <%= form_with url: event_rides_path(@event), method: :get, class: "d-flex flex-column", html: { data: {toggle_target: "formAller"} } do %>
-         <%= text_field_tag :query,
+        <%= text_field_tag :query,
                 params[:query],
                 class: "form-control input-search",
-                placeholder: "Departure place",
-                data: { address_autocomplete_target: "query",
-                        controller: "address-autocomplete",
-                        address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
-                      }
+                placeholder: "Departure place"
             %>
         <%= text_field_tag :arrival_place,
             @event.address,
