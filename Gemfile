@@ -80,3 +80,4 @@ end
 #Custom gems
 
 gem "wicked"
+gem "geocoder"
