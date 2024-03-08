@@ -7,7 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
+puts "Deleting passengers..."
+PassengerRequest.destroy_all
 puts "Deleting rides..."
 Ride.destroy_all
 puts "Deleting cars..."
