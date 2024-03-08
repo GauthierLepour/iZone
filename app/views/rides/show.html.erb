@@ -24,14 +24,17 @@
       <div><p><%= @ride.departure_time.strftime("%d %B %Y, %H:%M")  %></p></div>
       </div>
     </div>
-
-      <div class="container d-flex justify-content-between">
+      <% if @ride.users.size < @ride.seats %>
+        <div class="container d-flex justify-content-between">
         <div class="form">
           <%= simple_form_for [@ride, @passenger_request] do |f| %>
             <%= f.button :submit, "Request a seat", class: "button-request"%>
           <% end %>
         </div>
       </div>
+      <% else %>
+        <strong>Sorry, this car is full</strong>
+      <% end %>
     <!--
     <div class="container mt-3">
       <small><i><p style="margin-bottom: 0px;">Your reservation will be confirmed once the driver accepts your demand</p></i></small>
