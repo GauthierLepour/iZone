@@ -1,6 +1,11 @@
 class MembershipsController < ApplicationController
   skip_before_action :authenticate_user!, only: :new
 
+  def index
+    @event = Event.find_by(invite_token: params[:event_invite_token])
+    @participants = @event.users
+  end
+
   def new
     if user_signed_in?
       create
