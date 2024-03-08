@@ -12,8 +12,9 @@
             @event.address,
             class: "form-control input-search",
             placeholder: "Arrival place" %>
-        <%= text_field_tag :distance,
+        <%= number_field_tag :distance,
                 params[:distance],
+                as: :integer,
                 class: "form-control input-search",
                 placeholder: "Rayon (km)"
             %>
