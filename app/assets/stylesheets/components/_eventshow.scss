@@ -17,7 +17,7 @@
 .event_banner_text{
   color: white;
   width: 100%;
-  margin-top: 105px;
+  margin-top: 86px;
 }
 
 .event_banner_image {
@@ -30,17 +30,20 @@
   height: auto;
   max-height: 38vh;
   width: 80%;
+  max-width: 80%;
   border-top: solid 1px;
   border-bottom: solid 1px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
-  word-wrap: break-word;
   overflow-y: scroll;
+
 }
 
 .event_description p {
   margin-bottom: 0;
+  word-wrap: break-word;
+
 }
 
 .event_buttons {
@@ -54,10 +57,10 @@
 }
 
 .event_button {
-  background-color: grey;
+  background-color: #F5E8C7;
   text-decoration: none;
   padding: 20px;
-  color: white;
+  color: #363062;
   border-radius: 10px;
 }
 
@@ -88,5 +91,5 @@
 .event_display_members_button {
   margin-bottom: 0;
   text-decoration: none;
-  color: black  ;
+  color: rgb(255, 255, 255)  ;
 }

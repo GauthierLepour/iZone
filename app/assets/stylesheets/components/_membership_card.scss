@@ -1,0 +1,68 @@
+.membership-list {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.membership-list-title {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  border-bottom: 1px solid;
+  padding: 17px;
+  margin-bottom: 0px;
+}
+
+.membership-card{
+  height: 60px;
+  // background-color: #818FB4;
+  // border-radius: 10px;
+  display: flex;
+  // margin-bottom: 5px;
+  // padding-bottom: 5px;
+  // justify-content: space-between;
+  border-bottom: 1px solid;
+  // border-top: 1px solid;
+  border-color: white;
+}
+
+.membership-card-picture-container {
+  height: 60px;
+  min-height: 60px;
+  width: 60px;
+  min-width: 60px;
+}
+
+.membership-card-picture {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  margin-top: 7px;
+  margin-left: 8px;
+  margin-right: auto;
+}
+
+.membership-card-info {
+  // background-color: rgba(127, 255, 212, 0.174);
+  height: 60px;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.membership-card-info-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

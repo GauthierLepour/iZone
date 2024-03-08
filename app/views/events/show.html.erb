@@ -1,7 +1,8 @@
 <div>
 <div class="event_banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key, class: 'event_banner_image', crop: :fill %>')">
   <div class="event_banner_text">
-    <h1><%= @event.name %></h1>
+    <h1 style="margin: 0;"><%= @event.name %></h1>
+    <p style="margin-bottom: 7px ;"><%= @event.address %> <br></p>
     <p style="font-size: 14px;">From : <%= @event.start_time.strftime("%B %-d, %H:%M") %> <br> To : <%= @event.end_time.strftime("%B %-d, %H:%M") %></p>
   </div>
   <% if @event.user == current_user%>
@@ -63,6 +64,6 @@
 
 <div class="event_display_members">
   <i class="event_display_members_icon fa-regular fa-user"></i>
-  <%= link_to "View participants", event_path, class: "event_display_members_button" %>
+  <%= link_to "View participants", event_memberships_path(@event), class: "event_display_members_button" %>
 </div>
 </div>
