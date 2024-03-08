@@ -3,12 +3,12 @@
     <%= link_to "/", class: "navbar-brand" do %>
       <p style="margin-bottom: 0px;">iZone</p>
     <% end %>
-
-
+    
   <div class="dropdown">
     <% if !user_signed_in? %>
     <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       Menu
+
     </button>
     <% end %>
     <ul class="dropdown-menu">
