@@ -6,7 +6,7 @@
         <%= cl_image_tag @ride.car.user.photo.key, class: "ride-card-picture" %>
         <div class="ms-3"><%= @ride.car.user.first_name %> <%= @ride.car.user.last_name %></div>
       </div>
-      <div><p><%= @ride.price %>$</p></div>
+      <div><strong style="font-size:20px"><%= @ride.price %>€</strong></div>
     </div>
 
     <div class="container mt-3">
@@ -18,50 +18,59 @@
         <p> </p>
     </div>
 
-    <div class="container mb-5">
-        <%= @ride.departure_time %>
-    </div>
-
-      <div class="container mt-5 d-flex justify-content-between">
-        <div><%= link_to "Ask for your seat(s)", new_event_path, class:"nice-link"%></div>
+    <div class="container" style="margin-bottom: 30px">
+      <div class="d-flex">
+      <div class="me-3"><i class="fa-regular fa-calendar"></i></div>
+      <div><p><%= @ride.departure_time.strftime("%d %B %Y, %H:%M")  %></p></div>
       </div>
-
-    <div class="container mt-3">
-      <small><i><p>Your reservation will be confirmed once the driver accepts your demand</p></i></small>
     </div>
+
+      <div class="container d-flex justify-content-between">
+        <div class="form">
+          <%= simple_form_for [@ride, @passenger_request] do |f| %>
+            <%= f.button :submit, "Request a seat", class: "button-request"%>
+          <% end %>
+        </div>
+      </div>
+    <!--
+    <div class="container mt-3">
+      <small><i><p style="margin-bottom: 0px;">Your reservation will be confirmed once the driver accepts your demand</p></i></small>
+    </div>-->
 
 
 </div>
 
-  <div class="drive-box">
-    <div class="drive"id="drive-car">
-      <i class="fa-solid fa-car"></i>
-      <%= @ride.car.brand %>
-      <%= @ride.car.model %>
-      <%= @ride.car.color %>
+  <div class="drive-info-card">
+    <div class="drive d-flex" id="drive-car">
+      <div class="me-3"><i class="fa-solid fa-car"></i></div>
+      <div>
+      <p style="margin-bottom:0px"><%= "#{@ride.car.brand} #{@ride.car.model} #{@ride.car.color}" %></p>
+      </div>
     </div>
   </div>
 
-  <div class="drive-box">
+  <div class="drive-info-card">
     <div class="drive"id="drive-extrainfo">
      <p> <i class="fa-solid fa-circle-info"></i>
              <%= @ride.description %></p>
     </div>
   </div>
 
-  <div class="drive-box">
-    <div class="container d-flex align-items-center justify-content-between">
-      <div><p>Passengers :</p></div>
-      <div>
-            <p>Johny</p>
-            <p>Peter</p>
+  <div class="drive-info-card mb-4">
+    <div class="container d-flex justify-content-around">
+      <div class="d-flex justify-content-center flex-column" style="margin-top: 10px">
+        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0"><%= "#{@ride.seats - @ride.users.size} / #{@ride.seats}" %></p>
+        <p>Seats remaining</p>
+        </div>
+      </div>
+      <div style="margin-top: 10px">
+      <div><p style="margin-left:16px">Passengers :</p></div>
+        <ul>
+          <% @ride.users.each do |user| %>
+            <li><p><%= "#{user.first_name} #{user.last_name.upcase}" %></p></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
-
-    <div class="drive-box">
-      <div class="container">
-        <div><%= link_to "Contact #{@ride.car.user.first_name}", new_event_path %></div>
-      </div>
-    </div>
 </div>

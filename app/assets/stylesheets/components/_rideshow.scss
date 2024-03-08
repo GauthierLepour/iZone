@@ -10,8 +10,15 @@
 }
 
 .drive-box {
-  box-sizing: border-box;
-  margin-top: 7px;
+  margin-top: 13px;
+  background-color: rgb(54, 48, 98);
+  border-radius: 10px;
+  box-shadow: rgba(246, 250, 255, 0.2) 0px 0px 5px;
+  padding: 20px;
+}
+
+.drive-info-card{
+  margin-top: 13px;
   background-color: rgb(54, 48, 98);
   border-radius: 10px;
   box-shadow: rgba(246, 250, 255, 0.2) 0px 0px 5px;

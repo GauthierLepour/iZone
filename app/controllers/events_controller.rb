@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_invite_token(params[:invite_token])
-    @link = "http://localhost:3000/events/#{@event.invite_token}/memberships/new"
+    @link = "https://www.i2one.me/events/#{@event.invite_token}/memberships/new"
   end
 
   def new

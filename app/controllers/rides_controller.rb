@@ -65,6 +65,7 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    @passenger_request = PassengerRequest.new
   end
 
   private
