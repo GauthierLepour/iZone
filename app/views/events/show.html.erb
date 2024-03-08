@@ -17,28 +17,44 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-
             <div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
               <div class="d-flex justify-content-between">
                 <input data-clipboard-target="input" style="width: 100%" type="text" value=<%=@link%> readonly>
                 <button class="btn btn-primary ms-1" data-action="click->clipboard#copy"><i class="fa-regular fa-copy"></i></button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-
 <div class="event_buttons">
-  <%= link_to 'Search a ride', event_rides_path(@event), class: "event_button" %>
+  <button type="button" class="event_button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+    Search a ride
+  </button>
   <% if current_user.cars.empty? %>
     <%= link_to 'Offer a ride', new_car_path, class: "event_button" %>
   <% else %>
     <%= link_to 'Offer a ride', new_event_ride_path(@event), class: "event_button" %>
   <% end %>
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">What traject are you looking for?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column">
+          <%= link_to "I want to go there", event_rides_path(@event), class:"button-classic mb-2" %>
+          <%= link_to "I want to come back", back_event_rides_path(@event), class:"button-classic" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="event_description">
