@@ -20,6 +20,7 @@
   border-radius: 4px;
   color: #000000;
   text-decoration: none;
+  border: none;
 }
 
 .button-filter {
@@ -42,7 +43,25 @@
   border: none;
 }
 
+.button-filter-events {
+  background-color: #C3B1E1;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  color: #000000;
+  text-decoration: none;
+  border: none;
+}
 
+.button-filter-all {
+  background-color: #BFC0C0;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  color: #000000;
+  text-decoration: none;
+  border: none;
+}
 
 .button-search{
   background-color: #F5E8C7;
