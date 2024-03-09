@@ -2,8 +2,8 @@
 
   <div class="filters d-flex justify-content-between">
     <button class="button-filter-large me-2" data-action="click->filter#mine">My events</button>
-    <button class="button-filter me-2" data-action="click->filter#joined">Events</button>
-    <button class="button-filter" data-action="click->filter#all">All</button>
+    <button class="button-filter-events me-2" data-action="click->filter#joined">Events</button>
+    <button class="button-filter-all" data-action="click->filter#all">All</button>
   </div>
   <div class="my-events" data-filter-target="myEvents">
     <% @my_events.each do |event| %>
@@ -11,7 +11,7 @@
         <div class="my-event mt-4 p-2">
           <div class="event-info mb-2">
             <div class="d-flex justify-content-between">
-              <div class="d-flex flex-column justify-content-center ms-2">
+              <div class="d-flex flex-column justify-content-center ms-3">
                 <div><p class="day"><%= event.start_time.day%></p></div>
                 <div><p class="month"><%= event.start_time.strftime('%b') %></p></div>
               </div>
@@ -33,7 +33,7 @@
         <div class="event mt-4 p-2">
           <div class="event-info mb-2">
             <div class="d-flex justify-content-between">
-              <div class="d-flex flex-column justify-content-center ms-2">
+              <div class="d-flex flex-column justify-content-center ms-3">
                 <div><p class="day"><%= event.start_time.day%></p></div>
                 <div><p class="month"><%= event.start_time.strftime('%b') %></p></div>
               </div>
@@ -46,19 +46,25 @@
           </div>
           <hr class="mb-3">
           <div class="rides-info">
-            <% event.rides.select { |ride| ride.car.user == current_user }.each do |ride| %>
-              <div class="d-flex  justify-content-begin">
-                <div class= "ms-2"><p><%= ride.departure_place %></p></div>
-                <div><i class="fa-solid fa-arrow-right" style="margin: 0 50px"></i></div>
-                <div><p><%= ride.arrival_place %></p></div>
+            <% if event.rides.select { |ride| ride.car.user == current_user }.empty? %>
+              <div class="d-flex">
+                <div><p class="ms-3">Sorry you have no ride planned. Go on the event page to find one.</p></div>
               </div>
-            <% end %>
-            <% event.rides.select { |ride| ride.users.include?(current_user) }.each do |ride| %>
-              <div class="d-flex justify-content-begin">
-                <div class= "ms-2"><p><%= ride.departure_place %></p></div>
-                <div><i class="fa-solid fa-arrow-right"  style="margin: 0 50px"></i></div>
-                <div><p><%= ride.arrival_place %></p></div>
-              </div>
+            <% else %>
+              <% event.rides.select { |ride| ride.car.user == current_user }.each do |ride| %>
+                <div class="d-flex  justify-content-begin">
+                  <div class= "ms-2"><p><%= ride.departure_place %></p></div>
+                  <div><i class="fa-solid fa-arrow-right" style="margin: 0 50px"></i></div>
+                  <div><p><%= ride.arrival_place %></p></div>
+                </div>
+              <% end %>
+              <% event.rides.select { |ride| ride.users.include?(current_user) }.each do |ride| %>
+                <div class="d-flex justify-content-begin">
+                  <div class= "ms-2"><p><%= ride.departure_place %></p></div>
+                  <div><i class="fa-solid fa-arrow-right"  style="margin: 0 50px"></i></div>
+                  <div><p><%= ride.arrival_place %></p></div>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
