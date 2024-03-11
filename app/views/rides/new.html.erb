@@ -2,7 +2,9 @@
   <div class="d-flex align-items-center justify-content-between p-2" data-controller="toggle">
     <div class="form">
       <%= simple_form_for [@event, @ride], html: { data: {toggle_target: "formAller"} } do |f| %>
-          <%= f.input :departure_place %>
+          <%= f.input :departure_place,
+            input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
+            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
           <%= f.input :arrival_place, input_html: { value: @event.address} %>
           <%= f.input :departure_time,
           as: :string,
@@ -17,7 +19,9 @@
     <div class="form" style="margin-left:-120px">
       <%= simple_form_for [@event, @ride], html: { class: "d-none", data: {toggle_target: "formRetour"} } do |f| %>
           <%= f.input :departure_place, input_html: { value: @event.address} %>
-          <%= f.input :arrival_place %>
+          <%= f.input :arrival_place,
+            input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
+            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
           <%= f.input :departure_time,
           as: :string,
           input_html: { data: { controller: "datepicker"} }%>
