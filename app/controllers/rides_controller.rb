@@ -57,6 +57,7 @@ class RidesController < ApplicationController
     @event = Event.find_by(invite_token: params[:event_invite_token])
     @ride.event = @event
     if @ride.save
+      current_user.memberships.find_by(event: @event).update(role: "driver")
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity

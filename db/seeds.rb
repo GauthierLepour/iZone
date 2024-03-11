@@ -7,6 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts "Deleting notifications..."
+Notification.destroy_all
 puts "Deleting passengers..."
 PassengerRequest.destroy_all
 puts "Deleting rides..."
@@ -199,15 +202,15 @@ puts "Rides created."
 
 puts "Creating memberships..."
 
-Membership.create(user: user1, event: event2)
-Membership.create(user: user1, event: event3)
-Membership.create(user: user8, event: event2)
-Membership.create(user: user10, event: event2)
-Membership.create(user: user9, event: event2)
-Membership.create(user: user3, event: event2)
-Membership.create(user: user7, event: event2)
-Membership.create(user: user6, event: event2)
-Membership.create(user: user5, event: event2)
-Membership.create(user: user5, event: event1)
-Membership.create(user: user10, event: event1)
-Membership.create(user: user2, event: event1)
+Membership.create(user: user1, event: event2, role: "driver")
+Membership.create(user: user1, event: event3, role: "passenger")
+Membership.create(user: user8, event: event2, role: "driver")
+Membership.create(user: user10, event: event2, role: "driver")
+Membership.create(user: user9, event: event2, role: "driver")
+Membership.create(user: user3, event: event2, role: "passenger")
+Membership.create(user: user7, event: event2, role: "passenger")
+Membership.create(user: user6, event: event2, role: "passenger")
+Membership.create(user: user5, event: event2, role: "driver")
+Membership.create(user: user5, event: event1, role: "passenger")
+Membership.create(user: user10, event: event1, role: "passenger")
+Membership.create(user: user2, event: event1, role: "passenger")
