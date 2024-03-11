@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_many :rides, dependent: :destroy
+  has_many :passenger_requests, through: :rides
   has_secure_token :invite_token
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
@@ -16,6 +17,12 @@ class Event < ApplicationRecord
 
   def to_param
     invite_token
+  end
+
+  def confirmed_rides(current_user)
+    my_requests = passenger_requests.where(user: current_user)
+    my_accepeted_request = my_requests.select { |pr| pr.status == "accept" }
+    return my_accepeted_request.map(&:ride)
   end
 
   private

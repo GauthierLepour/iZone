@@ -12,10 +12,15 @@
         <i class="fa-solid fa-calendar-days icone-button"></i>
         <% end %>
       </div>
-      <%# <div class="footericon">
-        <i class="fa-solid fa-bell icone-button"></i>
-      </div>
       <div class="footericon">
+        <%= link_to notifications_path do %>
+          <div style="position:relative;">
+            <i class="fa-solid fa-bell icone-button"></i>
+            <p class="notif" style="margin-bottom:0"><%= current_user.notifications.size %></p>
+          </div>
+        <% end %>
+      </div>
+      <%# <div class="footericon">
         <i class="fa-solid fa-envelope icone-button"></i>
       </div> %>
     <% end %>

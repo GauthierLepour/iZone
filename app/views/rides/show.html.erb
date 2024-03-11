@@ -24,7 +24,7 @@
       <div><p><%= @ride.departure_time.strftime("%d %B %Y, %H:%M")  %></p></div>
       </div>
     </div>
-      <% if @ride.users.size < @ride.seats %>
+      <% if @ride.passenger_requests.where(status: "accept").size < @ride.seats %>
         <div class="container d-flex justify-content-between">
         <div class="form">
           <%= simple_form_for [@ride, @passenger_request] do |f| %>
@@ -62,17 +62,19 @@
   <div class="drive-info-card mb-4">
     <div class="container d-flex justify-content-around">
       <div class="d-flex justify-content-center flex-column" style="margin-top: 10px">
-        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0"><%= "#{@ride.seats - @ride.users.size} / #{@ride.seats}" %></p>
+        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0"><%= "#{@ride.seats - @ride.passenger_requests.where(status: "accept").size} / #{@ride.seats}" %></p>
         <p>Seats remaining</p>
         </div>
       </div>
       <div style="margin-top: 10px">
       <div><p style="margin-left:16px">Passengers :</p></div>
-        <ul>
-          <% @ride.users.each do |user| %>
-            <li><p><%= "#{user.first_name} #{user.last_name.upcase}" %></p></li>
-          <% end %>
-        </ul>
+        <% unless @ride.passenger_requests.where(status: "accept").empty? %>
+          <ul>
+            <% @ride.passenger_requests.where(status: "accept").each do |pr| %>
+              <li><p><%= "#{pr.user.first_name} #{pr.user.last_name.upcase}" %></p></li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>
