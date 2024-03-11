@@ -128,9 +128,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_100102) do
     t.integer "seats"
     t.string "status"
     t.datetime "departure_time"
-    t.text "description"
     t.float "latitude"
     t.float "longitude"
+    t.text "description"
     t.index ["car_id"], name: "index_rides_on_car_id"
     t.index ["event_id"], name: "index_rides_on_event_id"
   end
