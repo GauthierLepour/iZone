@@ -53,17 +53,19 @@
     </div>
   </div>
 
-  <div class="drive-info-card">
+  <% if @ride.description %>
+    <div class="drive-info-card">
     <div class="drive"id="drive-extrainfo">
      <p> <i class="fa-solid fa-circle-info"></i>
              <%= @ride.description %></p>
     </div>
   </div>
+  <% end %>
 
   <div class="drive-info-card mb-4">
     <div class="container d-flex justify-content-around">
-      <div class="d-flex justify-content-center flex-column" style="margin-top: 10px">
-        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0"><%= "#{@ride.seats - @ride.passenger_requests.where(status: "accept").size} / #{@ride.seats}" %></p>
+      <div class="d-flex justify-content-center flex-column" style="margin-top: 10px; border-right:solid 1px white; padding-right:27px">
+        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0; "><%= "#{@ride.seats - @ride.passenger_requests.where(status: "accept").size} / #{@ride.seats}" %></p>
         <p>Seats remaining</p>
         </div>
       </div>
@@ -75,6 +77,8 @@
               <li><p><%= "#{pr.user.first_name} #{pr.user.last_name.upcase}" %></p></li>
             <% end %>
           </ul>
+          <% else %>
+          <em>No passenger yet</em>
         <% end %>
       </div>
     </div>

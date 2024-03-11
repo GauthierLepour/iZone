@@ -19,7 +19,7 @@ class Ride < ApplicationRecord
 
   def display_adress(address)
     if address.size > 30
-      "#{address.slice(0..30)}..."
+      address.split(" - ")[0]
     else
       address
     end
