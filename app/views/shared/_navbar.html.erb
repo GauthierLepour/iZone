@@ -13,6 +13,7 @@
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "My profile", profile_path(current_user), class: "dropdown-item", data: {turbo_method: :read} %>
             <%= link_to "Add a car", new_car_path(current_user), class: "dropdown-item", data: {turbo_method: :create} %>
+            <%= link_to "My requests", passenger_requests_path, class: "dropdown-item"%>
             <%= link_to "My drives", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           </div>
