@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
   <div class="form">
     <%= simple_form_for @car do |f| %>
         <%= f.input :brand %>
@@ -6,6 +6,7 @@
         <%= f.input :color %>
         <%= f.input :license_plate %>
         <%= f.submit %>
+
     <% end %>
   </div>
   <% if current_user.cars.empty? %>
