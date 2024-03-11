@@ -27,8 +27,11 @@
           <div>
             <p class="mb-0"><%= participant.first_name %> <%= participant.last_name %></p>
             <p style="font-size: 11px;">
-            <%# <%= participant.memberships.find_by(event: @event).role %>
-            Guest
+            <% if participant.memberships.find_by(event: @event).role == nil %>
+              Guest
+            <% else %>
+              <%= participant.memberships.find_by(event: @event).role.capitalize %>
+            <% end %>
             </p>
             <p></p>
           </div>
