@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :passenger_requests, only: [:create]
   end
 
-  resources :passenger_requests, only: [:edit, :update]
+  resources :passenger_requests, only: [:index, :edit, :update]
 end

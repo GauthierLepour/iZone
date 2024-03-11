@@ -1,0 +1,34 @@
+.requests_container {
+  width: 95%;
+  height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.request_card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13px;
+  background-color: rgb(54, 48, 98);
+  border-radius: 10px;
+  box-shadow: rgba(246, 250, 255, 0.2) 0px 0px 5px;
+  padding: 5px;
+  height: 90px;
+}
+
+.request_picture {
+  width: 80px;
+  height: 80px;
+  min-height: 80px;
+  min-width: 80px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.request_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.request_status {
+}
