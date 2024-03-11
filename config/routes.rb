@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   root to: "pages#home"
+  get "/profile", to: "pages#profile"
   resources :cars
   resources :notifications, only: [:index]
   resources :events, param: :invite_token do
     resources :rides, only: [:index, :create, :new] do
       collection do
         get :back
-
-        resource :profile, only: [:show, :edit, :update]
       end
     end
     resources :memberships, only: [:index, :new, :create ]

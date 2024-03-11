@@ -1,7 +1,6 @@
 <div class="container">
-  <div class="align-items-center justify-content-between p-2 text-align-justify" data-controller="toggle">
-    <div class="form">
-      <%= simple_form_for(@event) do |f| %>
+  <div class="form">
+    <%= simple_form_for(@event) do |f| %>
       <%= f.input :photo, as: :file %>
       <%= f.input :name %>
       <%= f.input :start_time,
@@ -13,7 +12,6 @@
       <%= f.input :address %>
       <%= f.input :description %>
       <%= f.submit %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
