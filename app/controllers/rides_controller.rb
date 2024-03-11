@@ -17,7 +17,8 @@ class RidesController < ApplicationController
         {
           lat: ride.latitude,
           lng: ride.longitude,
-          info_window_html: render_to_string(partial: "rides/info_window", locals: { ride: ride })
+          info_window_html: render_to_string(partial: "rides/info_window", locals: { ride: ride }),
+          marker_html: render_to_string(partial: "rides/marker2")
         }
       end
     end
@@ -65,6 +66,13 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    @event_coord = Geocoder.coordinates(@ride.event.address)
+    @event_marker = [{ lat: @event_coord[0],
+                       lng: @event_coord[1],
+                       marker_html: render_to_string(partial: "rides/marker") }]
+    @ride_marker = [{ lat: @ride.latitude,
+                      lng: @ride.longitude,
+                      marker_html: render_to_string(partial: "rides/marker2") }]
     @passenger_request = PassengerRequest.new
   end
 

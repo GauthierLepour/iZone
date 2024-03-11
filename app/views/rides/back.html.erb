@@ -1,22 +1,21 @@
 <div class="container">
   <h3 class="ride-list-title">Filter your search</h3>
   <div class="d-flex" data-controller="toggle">
-    <div class="d-flex justify-content-center mt-3 mb-3">
-      <%= form_with url: back_event_rides_path(@event), method: :get, class: "d-flex search-form  form-search", html: { data: {toggle_target: "formAller"} } do %>
+    <div class="mt-3 mb-3 search-form">
+      <%= form_with url: back_event_rides_path(@event), method: :get, class: "d-flex flex-column", html: { data: {toggle_target: "formAller"} } do %>
         <%= text_field_tag :arrival_place,
             @event.address,
             class: "form-control input-search",
             placeholder: "Arrival place" %>
-        <%= text_field_tag :query,
-                params[:query],
-                class: "form-control input-search",
-                placeholder: "Departure place"
-            %>
-        <%= text_field_tag :distance,
+        <div class="form_address" data-controller= "address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <%= text_field_tag :query, params[:query], class: "input_form d-none", data: { address_autocomplete_target: "address" } %>
+        </div>
+        <%= number_field_tag :distance,
                 params[:distance],
+                as: :integer,
                 class: "form-control input-search",
                 placeholder: "Rayon (km)"
-            %>
+        %>
         <%= submit_tag "Search", name: "", class: "button-search input-right" %>
       <% end %>
     </div>
