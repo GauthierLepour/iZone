@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_07_133100) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_09_100102) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,6 +97,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_133100) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "passenger_request_id", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["passenger_request_id"], name: "index_notifications_on_passenger_request_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "passenger_requests", force: :cascade do |t|
     t.string "status"
     t.bigint "ride_id", null: false
@@ -118,9 +128,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_133100) do
     t.integer "seats"
     t.string "status"
     t.datetime "departure_time"
-    t.text "description"
     t.float "latitude"
     t.float "longitude"
+    t.text "description"
     t.index ["car_id"], name: "index_rides_on_car_id"
     t.index ["event_id"], name: "index_rides_on_event_id"
   end
@@ -148,6 +158,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_133100) do
   add_foreign_key "memberships", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "passenger_requests"
+  add_foreign_key "notifications", "users"
   add_foreign_key "passenger_requests", "rides"
   add_foreign_key "passenger_requests", "users"
   add_foreign_key "rides", "cars"

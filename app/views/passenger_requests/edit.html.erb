@@ -1,0 +1,13 @@
+<div class="container">
+  <div>
+    <h4><%= "#{@passenger_request.user.first_name} would like to join your ride. Here you can find informations:" %></h4>
+  </div>
+  <div class="form">
+    <%= simple_form_for @passenger_request do |f| %>
+      <div class="d-flex justify-content-around">
+        <%= f.button :submit, "Accept", name: "passenger_request[status]", value: "accept", class: "button-classic", style:"color: green" %>
+        <%= f.button :submit, "Decline", name: "passenger_request[status]", value: "decline", class: "button-classic", style:"color: red"%>
+      </div>
+    <% end %>
+  </div>
+</div>

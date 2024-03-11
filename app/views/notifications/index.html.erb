@@ -1,0 +1,19 @@
+<div class="container" style="width:100vw">
+  <% @notifications.each do |notif| %>
+    <%= link_to notif.passenger_request.status == "pending" ? edit_passenger_request_path(notif.passenger_request) : "#", style:'text-decoration: none;' do  %>
+      <div class="d-flex notification-card">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag notif.sender.photo.key, class: "avatar-notif" %>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mt-2"><%= "#{notif.sender.first_name} #{notif.description}" %></p>
+        </div>
+        <% if notif.passenger_request.status == "pending" %>
+        <div class="d-flex align-items-center">
+          <p><i class="fa-solid fa-chevron-right"></i></p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

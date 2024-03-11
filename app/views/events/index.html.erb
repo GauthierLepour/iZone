@@ -46,26 +46,20 @@
           </div>
           <hr class="mb-3">
           <div class="rides-info">
-            <% if event.rides.select { |ride| ride.car.user == current_user }.empty? %>
-              <div class="d-flex">
-                <div><p class="ms-3">Sorry you have no ride planned. Go on the event page to find one.</p></div>
-              </div>
-            <% else %>
               <% event.rides.select { |ride| ride.car.user == current_user }.each do |ride| %>
                 <div class="d-flex  justify-content-begin">
-                  <div class= "ms-2"><p><%= ride.departure_place %></p></div>
+                  <div class= "ms-3"><p><%= ride.departure_place %></p></div>
                   <div><i class="fa-solid fa-arrow-right" style="margin: 0 50px"></i></div>
                   <div><p><%= ride.arrival_place %></p></div>
                 </div>
               <% end %>
-              <% event.rides.select { |ride| ride.users.include?(current_user) }.each do |ride| %>
+              <% event.confirmed_rides(current_user).each do |ride| %>
                 <div class="d-flex justify-content-begin">
-                  <div class= "ms-2"><p><%= ride.departure_place %></p></div>
+                  <div class= "ms-3"><p><%= ride.departure_place %></p></div>
                   <div><i class="fa-solid fa-arrow-right"  style="margin: 0 50px"></i></div>
                   <div><p><%= ride.arrival_place %></p></div>
                 </div>
               <% end %>
-            <% end %>
           </div>
         </div>
       <% end %>
