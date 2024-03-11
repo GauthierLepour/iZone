@@ -11,6 +11,8 @@
 puts "Deleting notifications..."
 Notification.destroy_all
 puts "Deleting passengers..."
+Notification.destroy_all
+puts "Deleting passengers..."
 PassengerRequest.destroy_all
 puts "Deleting rides..."
 Ride.destroy_all
@@ -90,7 +92,7 @@ puts "Creating events..."
 file = URI.open("https://assets.newatlas.com/dims4/default/5eb889b/2147483647/strip/true/crop/2000x1331+0+0/resize/2000x1331!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F5f%2F5c%2F348d6a3a4e9fb7d90f1a26e0c305%2Fdepositphotos-34452711-l-2015.jpg")
 event1 = Event.create(name: "Flocon's birthday",
                       description: "My bunny is getting old... celebrating her birthday soon, please come at my house ! see ya friends ! (^o^)/",
-                      address: "Wavre",
+                      address: "Ottignies-Louvain-La-Neuve",
                       start_time: "2024-03-15 09:00:00",
                       end_time: "2024-03-15 16:00:00",
                       user: user1)
@@ -153,7 +155,7 @@ ride3 = Ride.create(departure_place: "Bruxelles",
                     the front passenger seat.")
 
 ride4 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Liège",
+                    arrival_place: "Ottignies-Louvain-La-Neuve",
                     price: 89,
                     event: event1,
                     car: car2,
@@ -161,17 +163,7 @@ ride4 = Ride.create(departure_place: "Bruxelles",
                     departure_time: "2024-03-16 08:45:00")
 
 ride5 = Ride.create(departure_place: "Arlon",
-                    arrival_place: "Anvers",
-                    price: 54,
-                    event: event2,
-                    car: car4,
-                    seats: 1,
-                    departure_time: "2024-03-16 08:45:00",
-                    description: "There is only one seat available because I'm also bringing my three cats on the
-                    travel.")
-
-ride5 = Ride.create(departure_place: "Arlon",
-                    arrival_place: "Wavre",
+                    arrival_place: "Ottignies-Louvain-La-Neuve",
                     price: 54,
                     event: event1,
                     car: car4,
@@ -191,7 +183,7 @@ ride6 = Ride.create(departure_place: "Wavre",
                     the playlist.")
 
 ride7 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Liège",
+                    arrival_place: "Ottignies-Louvain-La-Neuve",
                     price: 89,
                     event: event1,
                     car: car3,

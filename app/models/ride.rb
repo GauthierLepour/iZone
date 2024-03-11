@@ -16,4 +16,12 @@ class Ride < ApplicationRecord
       departure_place
     end
   end
+
+  def display_adress(address)
+    if address.size > 30
+      "#{address.slice(0..30)}..."
+    else
+      address
+    end
+  end
 end
