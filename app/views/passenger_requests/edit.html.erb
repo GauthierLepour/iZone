@@ -1,6 +1,8 @@
 <div class="container">
-  <div>
-    <h4><%= "#{@passenger_request.user.first_name} would like to join your ride. Here you can find informations:" %></h4>
+  <div class="mt-4">
+  <p>
+  </p>
+    <h4><%= "#{@passenger_request.user.first_name} would like to join your ride." %></h4>
   </div>
   <div class="form">
     <%= simple_form_for @passenger_request do |f| %>
@@ -10,4 +12,15 @@
       </div>
     <% end %>
   </div>
+  <p>
+  </p>
+  <div class="mt-5">
+   <h4>See more  about <%= "#{@passenger_request.user.first_name}"%> :</h4>
+  </div>
+
+  <div>
+     <%= image_tag @passenger_request.user.photo, class: "membership-card-picture" %>
+  </div>
+
+
 </div>

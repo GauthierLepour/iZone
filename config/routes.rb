@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :rides, only: [:index, :create, :new] do
       collection do
         get :back
+
+        resource :profile, only: [:show, :edit, :update]
       end
     end
     resources :memberships, only: [:index, :new, :create ]
