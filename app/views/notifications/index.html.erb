@@ -7,8 +7,31 @@
   <%# <% else %>
 
   <% @notifications.each do |notif| %>
-    <%= link_to notif.passenger_request.status == "pending" ? edit_passenger_request_path(notif.passenger_request) : "#", style:'text-decoration: none;' do  %>
-      <div class="d-flex notification-card">
+
+    <% if notif.passenger_request.status == "pending" %>
+      <%= link_to edit_passenger_request_path(notif.passenger_request) do %>
+        <div class="d-flex notification-card">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag notif.sender.photo.key, class: "avatar-notif" %>
+        </div>
+
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-center mt-2">
+            <h4 style="margin-bottom:0"><%= "#{notif.passenger_request.ride.event.name}" %></h4>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <p><%= "#{notif.sender.first_name} #{notif.description}" %></p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <p><i class="fa-solid fa-chevron-right"></i></p>
+        </div>
+      </div>
+      <% end %>
+
+      <% elsif notif.passenger_request.status == "accept"%>
+        <div class="d-flex notification-card">
 
         <div class="d-flex align-items-center">
           <%= cl_image_tag notif.sender.photo.key, class: "avatar-notif" %>
@@ -23,13 +46,26 @@
             <p><%= "#{notif.sender.first_name} #{notif.description}" %></p>
           </div>
         </div>
-
-        <% if notif.passenger_request.status == "pending" %>
-        <div class="d-flex align-items-center">
-          <p><i class="fa-solid fa-chevron-right"></i></p>
-        </div>
-        <% end %>
+          <%= form_with url: orders_path do %>
+          <%= hidden_field_tag 'ride_id', notif.passenger_request.ride.id %>
+          <%= submit_tag 'pay', class: 'button-request mt-4' %>
+          <% end %>
       </div>
+
+      <% else %>
+        <div class="d-flex notification-card">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag notif.sender.photo.key, class: "avatar-notif" %>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-center mt-2">
+            <h4 style="margin-bottom:0"><%= "#{notif.passenger_request.ride.event.name}" %></h4>
+          </div>
+          <div class="d-flex align-items-center">
+            <p><%= "#{notif.sender.first_name} #{notif.description}" %></p>
+          </div>
+        </div>
     <% end %>
   <% end %>
+</div>
 </div>

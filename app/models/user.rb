@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one_attached :photo
+  has_many :orders
   has_many :cars
   has_many :notifications
   has_many :memberships, dependent: :destroy

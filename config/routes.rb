@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   root to: "pages#home"
   get "/profile", to: "pages#profile"
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
   resources :cars
   resources :notifications, only: [:index]
   resources :events, param: :invite_token do
