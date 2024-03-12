@@ -37,6 +37,32 @@
   background-color: transparent;
 }
 
+.mapboxgl-ctrl-geocoder--input{
+  color: white;
+  max-width: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border: none;
+}
+
+.mapboxgl-ctrl-geocoder--input:focus{
+  max-width: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  border: none !important;
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.mapboxgl-ctrl-geocoder * {
+  background-color: transparent;
+
+}
+
 .mapboxgl-ctrl-bottom-left {
   display: none;
 }
@@ -51,4 +77,9 @@
   margin: 0 auto;
   margin-top: 13px;
   border-radius: 10px;
+}
+
+.mapboxgl-ctrl-geocoder--icon-search{
+  padding-bottom: 8px;
+  height: 20px;
 }
