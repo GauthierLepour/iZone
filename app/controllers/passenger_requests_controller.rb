@@ -1,4 +1,9 @@
 class PassengerRequestsController < ApplicationController
+
+  def index
+    @passenger_requests = PassengerRequest.all
+  end
+
   def create
     @ride = Ride.find(params[:ride_id])
     @passenger_request = PassengerRequest.new(status: "pending")

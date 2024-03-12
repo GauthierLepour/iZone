@@ -11,6 +11,8 @@
 puts "Deleting notifications..."
 Notification.destroy_all
 puts "Deleting passengers..."
+Notification.destroy_all
+puts "Deleting passengers..."
 PassengerRequest.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
@@ -92,7 +94,7 @@ puts "Creating events..."
 file = URI.open("https://assets.newatlas.com/dims4/default/5eb889b/2147483647/strip/true/crop/2000x1331+0+0/resize/2000x1331!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F5f%2F5c%2F348d6a3a4e9fb7d90f1a26e0c305%2Fdepositphotos-34452711-l-2015.jpg")
 event1 = Event.create(name: "Flocon's birthday",
                       description: "My bunny is getting old... celebrating her birthday soon, please come at my house ! see ya friends ! (^o^)/",
-                      address: "Wavre",
+                      address: "Ottignies-Louvain-La-Neuve",
                       start_time: "2024-03-15 09:00:00",
                       end_time: "2024-03-15 16:00:00",
                       user: user1)
@@ -214,3 +216,8 @@ Membership.create(user: user5, event: event2, role: "driver")
 Membership.create(user: user5, event: event1, role: "passenger")
 Membership.create(user: user10, event: event1, role: "passenger")
 Membership.create(user: user2, event: event1, role: "passenger")
+Membership.create(user: user1, event: event1, role: "Owner")
+Membership.create(user: user4, event: event2, role: "Owner")
+Membership.create(user: user2, event: event3, role: "Owner")
+
+puts "Memberships created."

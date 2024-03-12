@@ -5,7 +5,10 @@
     <button class="button-filter-events me-2" data-action="click->filter#joined">Events</button>
     <button class="button-filter-all" data-action="click->filter#all">All</button>
   </div>
-  <div class="my-events" data-filter-target="myEvents">
+  <% if @my_events.size + @joined_events.size ==0 %>
+    <i><p class = "d-flex justify-content-around mt-4">You don’t have any event for the moment</p></i>
+  <% else %>
+    <div class="my-events" data-filter-target="myEvents">
     <% @my_events.each do |event| %>
       <%= link_to event_path(event), style:"text-decoration:none; color:white" do %>
         <div class="my-event mt-4 p-2">
@@ -48,16 +51,16 @@
           <div class="rides-info">
               <% event.rides.select { |ride| ride.car.user == current_user }.each do |ride| %>
                 <div class="d-flex  justify-content-begin">
-                  <div class= "ms-3"><p><%= ride.departure_place %></p></div>
+                  <div class= "ms-3"><p><%= ride.display_adress(ride.departure_place) %></p></div>
                   <div><i class="fa-solid fa-arrow-right" style="margin: 0 50px"></i></div>
-                  <div><p><%= ride.arrival_place %></p></div>
+                  <div><p><%= ride.display_adress(ride.arrival_place) %></p></div>
                 </div>
               <% end %>
               <% event.confirmed_rides(current_user).each do |ride| %>
                 <div class="d-flex justify-content-begin">
-                  <div class= "ms-3"><p><%= ride.departure_place %></p></div>
+                  <div class= "ms-3"><p><%= ride.display_adress(ride.departure_place) %></p></div>
                   <div><i class="fa-solid fa-arrow-right"  style="margin: 0 50px"></i></div>
-                  <div><p><%= ride.arrival_place %></p></div>
+                  <div><p><%= ride.display_adress(ride.arrival_place) %></p></div>
                 </div>
               <% end %>
           </div>
@@ -65,4 +68,5 @@
       <% end %>
     <% end %>
   </div>
+  <% end %>
 </div>

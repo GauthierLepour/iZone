@@ -1,0 +1,27 @@
+<div>
+  <h3 class = "membership-list-title mt-2" style="text-align: center; margin-bottom: 25px; ">My requests</h3>
+
+
+
+  <div class="requests_container">
+
+      <% @passenger_requests.each do |request|%>
+        <% if request.user == current_user %>
+        <div class="request_card">
+          <div class="request_picture col-2">
+          <%= cl_image_tag request.ride.car.user.photo.key, class: "request_picture" %>
+          </div>
+          <div class="request-info col-7">
+            <p class="mb-0" style="font-size: 18px;"><%= request.ride.car.user.first_name %> <%= request.ride.car.user.last_name %></p>
+            <p style="font-size: 15px;">to <%= request.ride.event.name %></p>
+          </div>
+          <div class="request_status col-3 d-flex flex-column">
+            <div style="height: 60px;"></div>
+            <p class="mb-1"><%= request.status %></p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+
+  </div>
+</div>

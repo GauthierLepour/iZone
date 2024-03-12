@@ -1,4 +1,5 @@
 class Ride < ApplicationRecord
+  monetize :price_cents
   belongs_to :event
   belongs_to :car
   has_many :passenger_requests, dependent: :destroy
@@ -15,6 +16,14 @@ class Ride < ApplicationRecord
       arrival_place
     else
       departure_place
+    end
+  end
+
+  def display_adress(address)
+    if address.size > 30
+      address.split(" - ")[0]
+    else
+      address
     end
   end
 end

@@ -4,44 +4,45 @@
     <div class="d-flex justify-content-between drive-driver">
       <div class="d-flex">
         <%= cl_image_tag @ride.car.user.photo.key, class: "ride-card-picture" %>
-        <div class="ms-3"><%= @ride.car.user.first_name %> <%= @ride.car.user.last_name %></div>
+        <div class="ms-3 d-flex flex-column">
+        <%= @ride.car.user.first_name %> <%= @ride.car.user.last_name %>
+        <div class="d-flex mt-3">
+          <div class="me-3"><i class="fa-regular fa-calendar"></i></div>
+          <div><p><%= @ride.departure_time.strftime("%d %B %Y, %H:%M")  %></p></div>
+        </div>
+        </div>
       </div>
       <div><strong style="font-size:20px"><%= @ride.price %>€</strong></div>
     </div>
-
     <div class="container mt-3">
       <div class="d-flex justify-content-between">
-        <div><%= @ride.departure_place %></div>
-        <div> <i class="fa-solid fa-arrow-right"></i> </div>
-        <div> <%= @ride.arrival_place %></div>
+        <div><%= @ride.display_adress(@ride.departure_place) %></div>
+        <div class="me-2"> <i class="fa-solid fa-arrow-right"></i> </div>
+        <div> <%= @ride.display_adress(@ride.arrival_place) %></div>
       </div>
-        <p> </p>
-    </div>
-
-    <div class="container" style="margin-bottom: 30px">
-      <div class="d-flex">
-      <div class="me-3"><i class="fa-regular fa-calendar"></i></div>
-      <div><p><%= @ride.departure_time.strftime("%d %B %Y, %H:%M")  %></p></div>
-      </div>
-    </div>
       <% if @ride.passenger_requests.where(status: "accept").size < @ride.seats %>
         <div class="container d-flex justify-content-between">
         <div class="form">
           <%= simple_form_for [@ride, @passenger_request] do |f| %>
-            <%= f.button :submit, "Request a seat", class: "button-request"%>
+            <%= f.button :submit, "Request a seat", class: "button-request mt-4"%>
           <% end %>
         </div>
       </div>
       <% else %>
-        <strong>Sorry, this car is full</strong>
+        <strong class="mt-4">Sorry, this car is full</strong>
       <% end %>
+    </div>
     <!--
     <div class="container mt-3">
       <small><i><p style="margin-bottom: 0px;">Your reservation will be confirmed once the driver accepts your demand</p></i></small>
     </div>-->
-
-
 </div>
+
+<div class="map-show"
+      data-controller="route"
+      data-route-ride-marker-value="<%= @ride_marker.to_json %>"
+      data-route-event-marker-value="<%= @event_marker.to_json %>"
+      data-route-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   <div class="drive-info-card">
     <div class="drive d-flex" id="drive-car">
@@ -52,17 +53,19 @@
     </div>
   </div>
 
-  <div class="drive-info-card">
+  <% if @ride.description %>
+    <div class="drive-info-card">
     <div class="drive"id="drive-extrainfo">
      <p> <i class="fa-solid fa-circle-info"></i>
              <%= @ride.description %></p>
     </div>
   </div>
+  <% end %>
 
   <div class="drive-info-card mb-4">
     <div class="container d-flex justify-content-around">
-      <div class="d-flex justify-content-center flex-column" style="margin-top: 10px">
-        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0"><%= "#{@ride.seats - @ride.passenger_requests.where(status: "accept").size} / #{@ride.seats}" %></p>
+      <div class="d-flex justify-content-center flex-column" style="margin-top: 10px; border-right:solid 1px white; padding-right:27px">
+        <div class="d-flex flex-column mt-1 align-items-center"><p style="font-size:40px; margin-bottom:0; "><%= "#{@ride.seats - @ride.passenger_requests.where(status: "accept").size} / #{@ride.seats}" %></p>
         <p>Seats remaining</p>
         </div>
       </div>
@@ -74,6 +77,8 @@
               <li><p><%= "#{pr.user.first_name} #{pr.user.last_name.upcase}" %></p></li>
             <% end %>
           </ul>
+          <% else %>
+          <em>No passenger yet</em>
         <% end %>
       </div>
     </div>

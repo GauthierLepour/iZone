@@ -2,19 +2,19 @@
 
 
   <div>
-    <h4>My profile</h4>
+    <h2>My profile</h2>
   </div>
+  <div class="form mt-4">
+  <ul>
 
-  <div>
-    <ul>
-
-      <p >
-      <%= @user.first_name %> <%= @user.last_name %>
-      </p>
-      <%# <%= @user.cars %>
-      <p>Hey there! I'm using iZone  <i class="fa-solid fa-hand-spock"></i></p>
-    </ul>
-  </div>
+    <p style = "font-weight: bold;">
+    <%= @user.first_name %> <%= @user.last_name %>
+    </p>
+    <%# <%= @user.cars %>
+    <p>Hey there! I'm using iZone</p>
+    <p>This is info about me if I want to put a sentence</p>
+  </ul>
+</div>
 
   <div class = "mt-3">
         <p class="bold">My cars: </p>

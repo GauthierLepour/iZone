@@ -12,7 +12,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/navigation-night-v1"
+      style: "mapbox://styles/mapbox/streets-v12"
     })
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
@@ -22,7 +22,9 @@ export default class extends Controller {
 
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker()
+      const customMarker2 = document.createElement("div")
+      customMarker2.innerHTML = marker.marker_html
+      new mapboxgl.Marker(customMarker2)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)

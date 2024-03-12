@@ -16,7 +16,9 @@
         <%= link_to notifications_path do %>
           <div style="position:relative;">
             <i class="fa-solid fa-bell icone-button"></i>
-            <p class="notif" style="margin-bottom:0"><%= current_user.notifications.size %></p>
+            <% unless current_user.notifications.size == 0 %>
+              <p class="notif" style="margin-bottom:0"><%= current_user.notifications.size %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
