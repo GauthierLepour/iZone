@@ -5,7 +5,10 @@
     <button class="button-filter-events me-2" data-action="click->filter#joined">Events</button>
     <button class="button-filter-all" data-action="click->filter#all">All</button>
   </div>
-  <div class="my-events" data-filter-target="myEvents">
+  <% if @my_events.size + @joined_events.size ==0 %>
+    <p>You have no event.</p>
+  <% else %>
+    <div class="my-events" data-filter-target="myEvents">
     <% @my_events.each do |event| %>
       <%= link_to event_path(event), style:"text-decoration:none; color:white" do %>
         <div class="my-event mt-4 p-2">
@@ -65,4 +68,5 @@
       <% end %>
     <% end %>
   </div>
+  <% end %>
 </div>
