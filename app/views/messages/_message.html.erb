@@ -1,0 +1,7 @@
+<div id="message-<%= message.id %>">
+  <small>
+    <strong><%= message.user.first_name %></strong>
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p style="color: black, word-wrap: break-word; overflow-wrap: break-word; word-break: break-word; max-width: 300px;"><%= message.content %></p>
+</div>

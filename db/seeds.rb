@@ -14,6 +14,8 @@ puts "Deleting passengers..."
 Notification.destroy_all
 puts "Deleting passengers..."
 PassengerRequest.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 puts "Deleting rides..."
 Ride.destroy_all
 puts "Deleting cars..."
@@ -134,6 +136,7 @@ ride1 = Ride.create(departure_place: "Liège",
                     departure_time: "2024-03-16 08:00:00",
                     description: "No smoking in my car. But you can choose the
                     music if you want to. Also, my rabbit is sitting in the front seat.")
+Chatroom.create(name: "chat1", ride: ride1)
 
 ride2 = Ride.create(departure_place: "Bruxelles",
                     arrival_place: "Anvers",
@@ -143,6 +146,7 @@ ride2 = Ride.create(departure_place: "Bruxelles",
                     seats: 4,
                     departure_time: "2024-03-16 08:20:00",
                     description: "You may hear some noise in the trunk, don't worry about it.")
+Chatroom.create(name: "chat2", ride: ride2)
 
 ride3 = Ride.create(departure_place: "Bruxelles",
                     arrival_place: "Anvers",
@@ -153,24 +157,28 @@ ride3 = Ride.create(departure_place: "Bruxelles",
                     departure_time: "2024-03-16 08:45:00",
                     description: "You need to apply some force on the handle if you open
                     the front passenger seat.")
+Chatroom.create(name: "chat3", ride: ride3)
 
 ride4 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Ottignies-Louvain-La-Neuve",
+                    arrival_place: "Wavre",
                     price: 89,
                     event: event1,
                     car: car2,
                     seats: 4,
                     departure_time: "2024-03-16 08:45:00")
+Chatroom.create(name: "chat4", ride: ride4)
+
 
 ride5 = Ride.create(departure_place: "Arlon",
-                    arrival_place: "Ottignies-Louvain-La-Neuve",
+                    arrival_place: "Anvers",
                     price: 54,
-                    event: event1,
+                    event: event2,
                     car: car4,
                     seats: 1,
                     departure_time: "2024-03-16 08:45:00",
                     description: "There is only one seat available because I'm also bringing my three cats on the
                     travel.")
+Chatroom.create(name: "chat5", ride: ride5)
 
 ride6 = Ride.create(departure_place: "Wavre",
                     arrival_place: "Anvers",
@@ -181,14 +189,16 @@ ride6 = Ride.create(departure_place: "Wavre",
                     departure_time: "2024-03-16 08:45:00",
                     description: "Be aware that I like my music loud. Also you can't choose
                     the playlist.")
+Chatroom.create(name: "chat6", ride: ride6)
 
 ride7 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Ottignies-Louvain-La-Neuve",
+                    arrival_place: "Wavre",
                     price: 89,
                     event: event1,
                     car: car3,
                     seats: 4,
                     departure_time: "2024-03-16 08:45:00")
+Chatroom.create(name: "chat7", ride: ride7)
 
 puts "Rides created."
 

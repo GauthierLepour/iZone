@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile", to: "pages#profile"
   resources :cars
+  resources :chatrooms, only: [:show, :index, :edit, :update] do
+    resources :messages, only: :create
+  end
   resources :notifications, only: [:index]
   resources :events, param: :invite_token do
     resources :rides, only: [:index, :create, :new] do
