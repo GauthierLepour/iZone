@@ -4,7 +4,7 @@
   </p>
   <div class= "d-flex">
     <%= image_tag @passenger_request.user.photo, class: "membership-card-picture m-2" %>
-    <h4><%= "#{@passenger_request.user.first_name} would like to join your ride." %></h4>
+    <h4><%= "#{@passenger_request.user.first_name} would like to join your ride for #{@passenger_request.ride.event.name}" %></h4>
   </div>
   </div>
   <p>
