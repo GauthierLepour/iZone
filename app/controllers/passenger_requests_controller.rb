@@ -25,6 +25,7 @@ class PassengerRequestsController < ApplicationController
                              description: "has #{@passenger_request.status}ed your request.")
     if @passenger_request.status == "accept"
       @passenger_request.user.memberships.find_by(event: @passenger_request.ride.event).update(role: "passenger")
+
     end
     notif.save!
     redirect_to root_path

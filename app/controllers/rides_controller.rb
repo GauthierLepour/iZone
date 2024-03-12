@@ -58,6 +58,7 @@ class RidesController < ApplicationController
     @ride.event = @event
     if @ride.save
       current_user.memberships.find_by(event: @event).update(role: "driver")
+      Chatroom.create(name, ride: @ride)
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity
