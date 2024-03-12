@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_161724) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_112838) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,7 +122,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_161724) do
   create_table "rides", force: :cascade do |t|
     t.string "departure_place"
     t.string "arrival_place"
-    t.float "price"
     t.bigint "event_id", null: false
     t.bigint "car_id", null: false
     t.datetime "created_at", null: false
@@ -131,6 +132,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_161724) do
     t.text "description"
     t.float "latitude"
     t.float "longitude"
+    t.integer "price_cents", default: 0, null: false
     t.index ["car_id"], name: "index_rides_on_car_id"
     t.index ["event_id"], name: "index_rides_on_event_id"
   end

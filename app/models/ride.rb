@@ -1,4 +1,5 @@
 class Ride < ApplicationRecord
+  monetize :price_cents
   belongs_to :event
   belongs_to :car
   has_many :passenger_requests, dependent: :destroy
