@@ -206,3 +206,8 @@ Membership.create(user: user5, event: event2, role: "driver")
 Membership.create(user: user5, event: event1, role: "passenger")
 Membership.create(user: user10, event: event1, role: "passenger")
 Membership.create(user: user2, event: event1, role: "passenger")
+Membership.create(user: user1, event: event1, role: "Owner")
+Membership.create(user: user4, event: event2, role: "Owner")
+Membership.create(user: user2, event: event3, role: "Owner")
+
+puts "Memberships created."
