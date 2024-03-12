@@ -3,6 +3,7 @@ class Ride < ApplicationRecord
   belongs_to :car
   has_many :passenger_requests, dependent: :destroy
   has_many :users, through: :passenger_requests
+  has_one :chatroom
   validates :departure_place, :arrival_place, :departure_time, presence: true
 
   geocoded_by :address_to_geocode
