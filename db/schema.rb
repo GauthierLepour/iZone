@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_09_100102) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_11_161724) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -128,9 +128,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_100102) do
     t.integer "seats"
     t.string "status"
     t.datetime "departure_time"
+    t.text "description"
     t.float "latitude"
     t.float "longitude"
-    t.text "description"
     t.index ["car_id"], name: "index_rides_on_car_id"
     t.index ["event_id"], name: "index_rides_on_event_id"
   end
@@ -145,6 +145,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_100102) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

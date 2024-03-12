@@ -6,7 +6,7 @@
     <button class="button-filter-all" data-action="click->filter#all">All</button>
   </div>
   <% if @my_events.size + @joined_events.size ==0 %>
-    <p>You have no event.</p>
+    <i><p class = "d-flex justify-content-around mt-4">You don’t have any event for the moment</p></i>
   <% else %>
     <div class="my-events" data-filter-target="myEvents">
     <% @my_events.each do |event| %>

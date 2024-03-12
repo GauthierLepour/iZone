@@ -1,4 +1,11 @@
 <div class="container" style="width:100vw">
+
+  <h3 class = "notification-title mt-3">Notifications</h3>
+
+  <%# <% if current_user.notifications.size == 0 %>
+    <%# <i><p class = "d-flex justify-content-around mt-4">You don’t have any notif for the moment</p></i> %>
+  <%# <% else %>
+
   <% @notifications.each do |notif| %>
     <%= link_to notif.passenger_request.status == "pending" ? edit_passenger_request_path(notif.passenger_request) : "#", style:'text-decoration: none;' do  %>
       <div class="d-flex notification-card">
