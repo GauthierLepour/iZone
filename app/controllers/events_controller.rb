@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     @event.user = current_user
     if @event.save
       redirect_to event_path(@event)
+      Membership.create!(role: "Owner", user: current_user, event: @event)
     else
       render :new, status: :unprocessable_entity
     end

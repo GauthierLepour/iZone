@@ -1,23 +1,6 @@
 <div>
   <h3 class="membership-list-title">Participants</h3>
   <div class="membership-list">
-    <div class="membership-card">
-      <div class="membership-card-picture-container">
-        <%= image_tag @event.user.photo, class: "membership-card-picture" %>
-      </div>
-      <div class="membership-card-info">
-        <div>
-          <p class="mb-0"><%= @event.user.first_name %> <%= @event.user.last_name %></p>
-          <p style="font-size: 11px;">
-            Event Organizer
-          </p>
-          <p></p>
-        </div>
-        <div>
-           <p class="membership-card-info-price"></p>
-        </div>
-      </div>
-    </div>
     <% @participants.each do |participant| %>
       <div class="membership-card">
         <div class="membership-card-picture-container">
