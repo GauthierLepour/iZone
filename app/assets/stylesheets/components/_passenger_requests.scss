@@ -1,6 +1,6 @@
 .requests_container {
   width: 95%;
-  height: 80vh;
+  height: 100vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -31,4 +31,6 @@
 }
 
 .request_status {
+  width: auto;
+  margin-right: 10px;
 }
