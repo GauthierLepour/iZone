@@ -29,6 +29,11 @@
     </div>
   <% end %>
 </div>
+<% if @event.user == current_user %>
+  <div class="event_buttons">
+    <%= link_to "Click here to modify your event", edit_event_path(@event), class:"link-white" %>
+  </div>
+<% else %>
 <div class="event_buttons">
   <button type="button" class="event_button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
     Search a ride
@@ -38,7 +43,6 @@
   <% else %>
     <%= link_to 'Offer a ride', new_event_ride_path(@event), class: "event_button" %>
   <% end %>
-
   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -56,14 +60,16 @@
   </div>
 </div>
 </div>
-
+<% end %>
 <div class="event_description">
   <h5 style="font-weight: bold;">Description</h5>
   <p><%= @event.description %></p>
 </div>
 
-<div class="event_display_members">
-  <i class="event_display_members_icon fa-regular fa-user"></i>
-  <%= link_to "View participants", event_memberships_path(@event), class: "event_display_members_button" %>
+<%= link_to event_memberships_path(@event), style: "text-decoration: none" do %>
+  <div class="event_display_members">
+  <p class="event_display_members_button"><i class="event_display_members_icon fa-regular fa-user"></i></p>
+  <p class="event_display_members_button" style="margin-left:45px">View <%= @event.memberships.size %> Participants</p>
 </div>
+<% end %>
 </div>

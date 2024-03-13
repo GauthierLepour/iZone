@@ -30,8 +30,8 @@
   text-align: left;
   height: auto;
   max-height: 38vh;
-  width: 80%;
-  max-width: 80%;
+  width: 90%;
+  max-width: 90%;
   border-top: solid 1px;
   border-bottom: solid 1px;
   margin-left: auto;
@@ -78,6 +78,8 @@
   align-items: center;
   border: 1px solid;
   border-radius: 10px;
+  justify-content: start;
+  color: white;
 }
 
 .event_display_members_icon {
@@ -87,8 +89,6 @@
   text-align: center;
   font-size: 30px;
   margin-top: 25px;
-  // border: 1px solid;
-  // border-radius: 50%;
 }
 
 .event_display_members_button {
