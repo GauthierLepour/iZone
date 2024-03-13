@@ -1,22 +1,33 @@
 <div style="height: 100%;">
   <h3 class = "membership-list-title mt-2" style="text-align: center; ">My requests</h3>
   <div class="requests_container">
+      <% if @passenger_requests.where(user: current_user).empty? %>
+        <p style="text-align: center; margin-top: 25px;">You have not received any requests yet.</p>
+      <% else %>
+        <% @passenger_requests.each do |request|%>
+          <% if request.user == current_user %>
+          <div class="request_card">
+            <div class="request_picture col-2">
+            <%= cl_image_tag request.ride.car.user.photo.key, class: "request_picture" %>
+            </div>
+            <div class="request-info col-7">
+              <p class="mb-0" style="font-size: 18px;"><%= request.ride.car.user.first_name %> <%= request.ride.car.user.last_name %></p>
+              <p style="font-size: 15px;">to <%= request.ride.event.name %></p>
+            </div>
+            <div class="request_status col-3 d-flex flex-column">
+              <div style="height: 60px;"></div>
+              <% if request.status == "accept" %>
+                <p class="mb-1"><%= request.status.capitalize %>ed</p>
+              <% elsif request.status == "decline" %>
+                <p class="mb-1"><%= request.status.capitalize %>d</p>
+              <% else %>
+                <p class="mb-1"><%= request.status.capitalize %></p>
 
-      <% @passenger_requests.each do |request|%>
-        <% if request.user == current_user %>
-        <div class="request_card">
-          <div class="request_picture col-2">
-          <%= cl_image_tag request.ride.car.user.photo.key, class: "request_picture" %>
+              <% end %>
+
+            </div>
           </div>
-          <div class="request-info col-7">
-            <p class="mb-0" style="font-size: 18px;"><%= request.ride.car.user.first_name %> <%= request.ride.car.user.last_name %></p>
-            <p style="font-size: 15px;">to <%= request.ride.event.name %></p>
-          </div>
-          <div class="request_status col-3 d-flex flex-column">
-            <div style="height: 60px;"></div>
-            <p class="mb-1"><%= request.status %></p>
-          </div>
-        </div>
+          <% end %>
         <% end %>
       <% end %>
   </div>
