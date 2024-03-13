@@ -10,7 +10,7 @@
     <%= link_to notif.passenger_request.status == "pending" ? edit_passenger_request_path(notif.passenger_request) : "#", style:'text-decoration: none;' do  %>
       <div class="d-flex notification-card">
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" style="width: 100px;">
           <%= cl_image_tag notif.sender.photo.key, class: "avatar-notif" %>
         </div>
 
