@@ -42,7 +42,8 @@ class RidesController < ApplicationController
         {
           lat: ride.latitude,
           lng: ride.longitude,
-          info_window_html: render_to_string(partial: "rides/info_window", locals: { ride: ride })
+          info_window_html: render_to_string(partial: "rides/info_window", locals: { ride: ride }),
+          marker_html: render_to_string(partial: "rides/marker2")
         }
       end
     end

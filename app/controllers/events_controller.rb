@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   def index
     @my_events = Event.where(user: current_user)
-    @joined_events = Event.all.select { |event| event.users.include?(current_user) }
+    @my_memberships = Membership.where(user: current_user)
+    @my_memberships = @my_memberships.reject { |membership| membership.role == "Owner" }
+    @joined_events = @my_memberships.map(&:event)
   end
 
   def show
