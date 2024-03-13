@@ -62,8 +62,10 @@
   <p><%= @event.description %></p>
 </div>
 
-<div class="event_display_members">
-  <i class="event_display_members_icon fa-regular fa-user"></i>
-  <%= link_to "View participants", event_memberships_path(@event), class: "event_display_members_button" %>
+<%= link_to event_memberships_path(@event), style: "text-decoration: none" do %>
+  <div class="event_display_members">
+  <p class="event_display_members_button"><i class="event_display_members_icon fa-regular fa-user"></i></p>
+  <p class="event_display_members_button">View <%= @event.memberships.size %> Participants</p>
 </div>
+<% end %>
 </div>
