@@ -12,13 +12,19 @@
   margin-bottom: 0;
 }
 
+.link-white {
+  color: #F5E8C7;
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: 20px;
+}
 .button-send {
   background-color: #F5E8C7;
   color: #000000;
   text-decoration: none;
   border: none;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
+  padding: 2px 15px;
 }
 
 .button-fat {
@@ -94,4 +100,14 @@
   border-radius: 10px;
   color: #000000;
   text-decoration: none;
+}
+
+.arrowUD{
+  background-color: transparent;
+  border: none;
+}
+
+.fa-arrows-up-down{
+  color: white;
+  font-size: 20px
 }

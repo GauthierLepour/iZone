@@ -4,16 +4,16 @@
   </p>
   <div class= "d-flex">
     <%= image_tag @passenger_request.user.photo, class: "membership-card-picture m-2" %>
-    <h4><%= "#{@passenger_request.user.first_name} would like to join your ride for #{@passenger_request.ride.event.name}" %></h4>
+    <h4 style="margin-bottom:0; padding-bottom:0"><%= "#{@passenger_request.user.first_name} would like to join your ride for #{@passenger_request.ride.event.name}" %></h4>
   </div>
   </div>
   <p>
   </p>
   <div class="form">
     <%= simple_form_for @passenger_request do |f| %>
-      <div class="d-flex justify-content-around" style = "margin-top: 208px;">
-        <%= f.button :submit, "Accept", name: "passenger_request[status]", value: "accept", class: "button-classic", style:"color: green" %>
-        <%= f.button :submit, "Decline", name: "passenger_request[status]", value: "decline", class: "button-classic", style:"color: red"%>
+      <div class="d-flex justify-content-around mt-5">
+        <%= f.submit "Accept", name: "passenger_request[status]", value: "Accept", class: "button-classic", style:"color: green" %>
+        <%= f.submit "Decline", name: "passenger_request[status]", value: "Decline", class: "button-classic", style:"color: red"%>
       </div>
     <% end %>
   </div>

@@ -24,7 +24,7 @@ class PassengerRequestsController < ApplicationController
 
   def update
     @passenger_request = PassengerRequest.find(params[:id])
-    @passenger_request.update(passenger_request_params)
+    @passenger_request.update(status: passenger_request_params[:status].downcase)
     # We will need a if statement to send 2 different notif depending on the new status
     notif = Notification.new(passenger_request: @passenger_request, user: @passenger_request.user,
                              description: "has #{@passenger_request.status}ed your request.")

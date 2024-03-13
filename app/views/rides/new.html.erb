@@ -1,6 +1,7 @@
 <div class="container">
+  <h2 class="mt-2 ms-4 mb-4">Create a ride:</h2>
   <div class="d-flex align-items-center justify-content-between p-2" data-controller="toggle">
-    <div class="form">
+    <div class="form" style="margin-left: 20px">
       <%= simple_form_for [@event, @ride], html: { data: {toggle_target: "formAller"} } do |f| %>
           <%= f.input :departure_place,
             input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
@@ -16,7 +17,7 @@
           <%= f.submit %>
       <% end %>
     </div>
-    <div class="form" style="margin-left:-120px">
+    <div class="form" style="margin-left:-40px">
       <%= simple_form_for [@event, @ride], html: { class: "d-none", data: {toggle_target: "formRetour"} } do |f| %>
           <%= f.input :departure_place, input_html: { value: @event.address} %>
           <%= f.input :arrival_place,
@@ -32,7 +33,7 @@
           <%= f.submit %>
       <% end %>
     </div>
-    <button>
+    <button class="arrowUD">
       <i class="fa-solid fa-arrows-up-down" data-action="click->toggle#display"></i>
     </button>
   </div>
