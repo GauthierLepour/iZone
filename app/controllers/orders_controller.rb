@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         price_data: {
-          currency: 'usd',
+          currency: 'eur',
             product_data: {
               name: ride.car.user.first_name,
               description: ride.description
@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         quantity: 1,
       }],
 
-    mode: 'payment',
+      mode: 'payment',
       success_url: order_url(order),
       cancel_url: order_url(order)
     )
