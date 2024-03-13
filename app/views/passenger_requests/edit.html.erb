@@ -1,4 +1,4 @@
-<div class="container" style = "margin-top: 25px;">
+<div class="container" style = "margin-top: 45px;">
   <div class="mt-4">
   <p>
   </p>
@@ -11,7 +11,7 @@
   </p>
   <div class="form">
     <%= simple_form_for @passenger_request do |f| %>
-      <div class="d-flex justify-content-around mt-5">
+      <div class="d-flex justify-content-around" style = "margin-top: 292px;">
         <%= f.submit "Accept", name: "passenger_request[status]", value: "Accept", class: "button-classic", style:"color: green" %>
         <%= f.submit "Decline", name: "passenger_request[status]", value: "Decline", class: "button-classic", style:"color: red"%>
       </div>
