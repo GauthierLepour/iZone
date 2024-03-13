@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :notifications, only: [:index]
   resources :events, param: :invite_token do
-    resources :rides, only: [:index, :create, :new] do
+    resources :rides, only: [:index, :new, :create] do
       collection do
         get :back
       end
