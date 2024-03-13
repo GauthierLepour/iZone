@@ -8,12 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+
 puts "Deleting notifications..."
 Notification.destroy_all
-puts "Deleting passengers..."
-Notification.destroy_all
-puts "Deleting passengers..."
+puts "Deleting passengers requests..."
 PassengerRequest.destroy_all
+puts "Deleting chatrooms..."
+Chatroom.destroy_all
 puts "Deleting rides..."
 Ride.destroy_all
 puts "Deleting cars..."

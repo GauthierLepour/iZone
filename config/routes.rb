@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   root to: "pages#home"
+
   get "/profile", to: "pages#profile"
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
@@ -21,4 +22,5 @@ Rails.application.routes.draw do
   end
 
   resources :passenger_requests, only: [:index, :edit, :update]
+
 end
