@@ -11,10 +11,10 @@
 puts "Deleting notifications..."
 Notification.destroy_all
 puts "Deleting passengers..."
-Notification.destroy_all
-puts "Deleting passengers..."
 PassengerRequest.destroy_all
+puts "Deleting messages..."
 Message.destroy_all
+puts "Deleting chatrooms..."
 Chatroom.destroy_all
 puts "Deleting rides..."
 Ride.destroy_all
@@ -25,6 +25,7 @@ Event.destroy_all
 puts "Deleting users..."
 User.destroy_all
 
+puts "------------------s"
 puts "Creating users..."
 
 file = URI.open("https://avatars.githubusercontent.com/u/141559562?v=4")
@@ -221,3 +222,6 @@ Membership.create(user: user4, event: event2, role: "Owner")
 Membership.create(user: user2, event: event3, role: "Owner")
 
 puts "Memberships created."
+puts "-------------------"
+puts "Finished seeding."
+puts "-------------------"

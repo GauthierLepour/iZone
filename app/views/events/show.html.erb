@@ -1,5 +1,5 @@
 <div>
-<div class="event_banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key, class: 'event_banner_image', crop: :fill %>')">
+<div class="event_banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('<%= cl_image_path @event.photo.key, class: 'event_banner_image', crop: :fill %>')">
   <div class="event_banner_text">
     <h1 style="margin: 0;"><%= @event.name %></h1>
     <p style="margin-bottom: 7px; font-size: 17px"><%= @event.display_adress(@event.address) %> <br></p>
