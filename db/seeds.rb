@@ -103,10 +103,10 @@ event1.photo.attach(io: file, filename: "rabbit_event.png", content_type: "image
 event1.save!
 
 file = URI.open("https://img.freepik.com/free-photo/groom-putting-ring-bride-s-finger_1157-338.jpg")
-event2 = Event.create(name: "Jonathan's wedding",
+event2 = Event.create(name: "John's wedding",
                       description: "Celebrating our union with Jonathania soon. We'll be exchanging vows, enjoying
                        fantastic food, and dancing the night away.",
-                      address: "Anvers",
+                      address: "Grote Markt 1, 2000 Antwerpen",
                       start_time: "2024-03-16 18:00:00",
                       end_time: "2024-03-16 23:00:00",
                       user: user4)
@@ -128,8 +128,8 @@ puts "Events created."
 
 puts "Creating rides..."
 
-ride1 = Ride.create(departure_place: "Liège",
-                    arrival_place: "Anvers",
+ride1 = Ride.create(departure_place: "Bd Hector Denis 338 b, 4000 Liège",
+                    arrival_place: "Grote Markt 1, 2000 Antwerpen",
                     price: 17,
                     event: event2,
                     car: car1,
@@ -139,8 +139,8 @@ ride1 = Ride.create(departure_place: "Liège",
                     music if you want to. Also, my rabbit is sitting in the front seat.")
 Chatroom.create(name: "chat1", ride: ride1)
 
-ride2 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Anvers",
+ride2 = Ride.create(departure_place: "Rue du Patinage, 1190 Forest",
+                    arrival_place: "Grote Markt 1, 2000 Antwerpen",
                     price: 12,
                     event: event2,
                     car: car3,
@@ -149,8 +149,8 @@ ride2 = Ride.create(departure_place: "Bruxelles",
                     description: "You may hear some noise in the trunk, don't worry about it.")
 Chatroom.create(name: "chat2", ride: ride2)
 
-ride3 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Anvers",
+ride3 = Ride.create(departure_place: "Rue des Halles 4, 1000 Bruxelles",
+                    arrival_place: "Grote Markt 1, 2000 Antwerpen",
                     price: 5,
                     event: event2,
                     car: car2,
@@ -160,8 +160,19 @@ ride3 = Ride.create(departure_place: "Bruxelles",
                     the front passenger seat.")
 Chatroom.create(name: "chat3", ride: ride3)
 
-ride4 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Wavre",
+ride32 = Ride.create(departure_place: "Grote Markt 1, 2000 Antwerpen",
+  arrival_place: "Rue des Halles 4, 1000 Bruxelles",
+  price: 5,
+  event: event2,
+  car: car2,
+  seats: 1,
+  departure_time: "2024-03-16 08:45:00",
+  description: "You need to apply some force on the handle if you open
+  the front passenger seat.")
+Chatroom.create(name: "chat32", ride: ride32)
+
+ride4 = Ride.create(departure_place: "Bd Hector Denis 338 b, 4000 Liège",
+                    arrival_place: "Rue Charles Jaumotte 54",
                     price: 89,
                     event: event1,
                     car: car2,
@@ -170,8 +181,8 @@ ride4 = Ride.create(departure_place: "Bruxelles",
 Chatroom.create(name: "chat4", ride: ride4)
 
 
-ride5 = Ride.create(departure_place: "Arlon",
-                    arrival_place: "Anvers",
+ride5 = Ride.create(departure_place: "Avenue de la Toison d'Or",
+                    arrival_place: "Grote Markt 1, 2000 Antwerpen",
                     price: 54,
                     event: event2,
                     car: car4,
@@ -181,8 +192,19 @@ ride5 = Ride.create(departure_place: "Arlon",
                     travel.")
 Chatroom.create(name: "chat5", ride: ride5)
 
-ride6 = Ride.create(departure_place: "Wavre",
-                    arrival_place: "Anvers",
+ride52 = Ride.create(departure_place: "Grote Markt 1, 2000 Antwerpen",
+                    arrival_place: "Avenue de la Toison d'Or",
+                    price: 54,
+                    event: event2,
+                    car: car4,
+                    seats: 1,
+                    departure_time: "2024-03-16 08:45:00",
+                    description: "There is only one seat available because I'm also bringing my three cats on the
+                    travel.")
+Chatroom.create(name: "chat52", ride: ride5)
+
+ride6 = Ride.create(departure_place: "Rue Charles Jaumotte 54",
+                    arrival_place: "Grote Markt 1, 2000 Antwerpen",
                     price: 36,
                     event: event2,
                     car: car5,
@@ -192,8 +214,19 @@ ride6 = Ride.create(departure_place: "Wavre",
                     the playlist.")
 Chatroom.create(name: "chat6", ride: ride6)
 
-ride7 = Ride.create(departure_place: "Bruxelles",
-                    arrival_place: "Wavre",
+ride62 = Ride.create(departure_place: "Grote Markt 1, 2000 Antwerpen",
+                      arrival_place: "Rue Charles Jaumotte 54",
+                      price: 36,
+                      event: event2,
+                      car: car5,
+                      seats: 4,
+                      departure_time: "2024-03-16 08:45:00",
+                      description: "Be aware that I like my music loud. Also you can't choose
+                      the playlist.")
+Chatroom.create(name: "chat62", ride: ride62)
+
+ride7 = Ride.create(departure_place: "Gate of Hal, Porte de Hal, Bd du Midi 150, 1000 Bruxelles",
+                    arrival_place: "Rue Charles Jaumotte 54",
                     price: 89,
                     event: event1,
                     car: car3,
