@@ -12,10 +12,10 @@
         <i class="fa-solid fa-calendar-days <%= params[:controller] == "events" || params[:controller] == "rides" ? "active-icon" : "icone-button" %>"></i>
         <% end %>
       </div>
-      <div class="<%= params[:controller] == "notifications" || params[:controller] == "passenger_requests" ? "active-footericon" : "footericon"%>">
+      <div class="<%= params[:controller] == "notifications" ? "active-footericon" : "footericon"%>">
         <%= link_to notifications_path do %>
           <div style="position:relative;">
-            <i class="fa-solid fa-bell <%= params[:controller] == "notifications" || params[:controller] == "passenger_requests" ? "active-icon" : "icone-button" %> "></i>
+            <i class="fa-solid fa-bell <%= params[:controller] == "notifications" ? "active-icon" : "icone-button" %> "></i>
             <% unless current_user.notification_count == 0 %>
               <p class="notif" style="margin-bottom:0"><%= current_user.notification_count %></p>
             <% end %>
