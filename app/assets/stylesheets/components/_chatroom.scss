@@ -55,6 +55,10 @@
 
 .message-card {
   width: 100%;
-  height: 100px;
+  height: 97px;
   color: white;
+  border-bottom: 1px solid;
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
 }
