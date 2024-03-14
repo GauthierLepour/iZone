@@ -48,7 +48,10 @@
             </div>
           </div>
           <hr class="mb-3">
-          <div class="rides-info">
+          <% if event.confirmed_rides(current_user).empty? && event.rides.select { |ride| ride.car.user == current_user }.empty? %>
+            <div class="d-flex justify-content-center"><em style="text-align:center">Sorry you have no ride yet.</em></div>
+          <% else %>
+            <div class="rides-info">
               <% event.rides.select { |ride| ride.car.user == current_user }.each do |ride| %>
                 <div class="d-flex  justify-content-begin">
                   <div class= "ms-3"><p><%= ride.display_adress(ride.departure_place) %></p></div>
@@ -63,7 +66,8 @@
                   <div><p><%= ride.display_adress(ride.arrival_place) %></p></div>
                 </div>
               <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     <% end %>
