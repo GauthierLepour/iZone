@@ -1,28 +1,28 @@
 <div>
 
-  <h3 class = "membership-list-title" style="text-align: center; width: 95%;">Messages</h3>
+  <h3 class = "membership-list-title mt-2" style="text-align: center; width: 95%;">Messages</h3>
 
 <div class="container">
-  <% @current_chatrooms.each do |chatroom| %>
-    <%= link_to chatroom_path(chatroom), style:"text-decoration:none" do %>
-      <div class="d-flex message-card">
-
-
-          <%= cl_image_tag chatroom.ride.car.user.photo.key, class: "avatar-mess" %>
-
-
-        <div class="d-flex flex-column justify-content-center" style="width: 70%;">
-          <div class="d-flex align-items-center mt-2">
-            <h4 style="margin-bottom:0; font-weight: bold;"><%= "#{chatroom.name}" %></h4>
-          </div>
-          <% unless chatroom.messages.empty? %>
-            <div class="d-flex align-items-center">
-              <p style="margin-bottom: 0;"><%= "#{chatroom.messages.last.user.first_name}: #{chatroom.messages.last.content.slice(0..20)}..." %></p>
+  <% if @current_chatrooms.length == 0 %>
+    <p style="text-align: center; margin-top: 25px;">You do not have any messages yet.</p>
+  <% else %>
+    <% @current_chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom), style:"text-decoration:none" do %>
+        <div class="d-flex message-card">
+            <%= cl_image_tag chatroom.ride.car.user.photo.key, class: "avatar-mess" %>
+          <div class="d-flex flex-column justify-content-center" style="width: 70%;">
+            <div class="d-flex align-items-center mt-2">
+              <h4 style="margin-bottom:0; font-weight: bold;"><%= "#{chatroom.name}" %></h4>
             </div>
-          <% end %>
+            <% unless chatroom.messages.empty? %>
+              <div class="d-flex align-items-center">
+                <p style="margin-bottom: 0;"><%= "#{chatroom.messages.last.user.first_name}: #{chatroom.messages.last.content.slice(0..20)}..." %></p>
+              </div>
+            <% end %>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
         </div>
-        <i class="fa-solid fa-chevron-right"></i>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

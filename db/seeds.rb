@@ -29,52 +29,52 @@ puts "------------------s"
 puts "Creating users..."
 
 file = URI.open("https://avatars.githubusercontent.com/u/141559562?v=4")
-user1 = User.create(email: "yassir@test.com", first_name: "Yassir", last_name: "El Bakkali", password: "123456")
+user1 = User.create(email: "yassir@hotmail.com", first_name: "Yassir", last_name: "El Bakkali", password: "123456")
 user1.photo.attach(io: file, filename: "avatar_yassir.png", content_type: "image/jpeg")
 user1.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/145115764?v=4')
-user2 = User.create(email: "gauthier@test.com", first_name: "Gauthier", last_name: "Lepour", password: "123456")
+user2 = User.create(email: "gauthier@hotmail.com", first_name: "Gauthier", last_name: "Lepour", password: "123456")
 user2.photo.attach(io: file, filename: "avatar_gauthier.png", content_type: "image/jpeg")
 user2.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/96615504?v=4')
-user3 = User.create(email: "benjamin@test.com", first_name: "Benjamin", last_name: "Moreau", password: "123456")
+user3 = User.create(email: "benjamin@hotmail.com", first_name: "Benjamin", last_name: "Moreau", password: "123456")
 user3.photo.attach(io: file, filename: "avatar_benjamin.png", content_type: "image/jpeg")
 user3.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/155843655?v=4')
-user4 = User.create(email: "jonathan@test.com", first_name: "Jonathan", last_name: "Elst", password: "123456")
+user4 = User.create(email: "jonathan@hotmail.com", first_name: "Jonathan", last_name: "Elst", password: "123456")
 user4.photo.attach(io: file, filename: "avatar_jonathan.png", content_type: "image/jpeg")
 user4.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/414418?v=4')
-user5 = User.create(email: "saunier@test.com", first_name: "Sébastien", last_name: "Saunier", password: "123456")
+user5 = User.create(email: "saunier@hotmail.com", first_name: "Sébastien", last_name: "Saunier", password: "123456")
 user5.photo.attach(io: file, filename: "avatar_saunier.png", content_type: "image/jpeg")
 user5.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/124592546?v=4')
-user6 = User.create(email: "nicolas@test.com", first_name: "Nicolas", last_name: "Nève de Mévergnies", password: "123456")
+user6 = User.create(email: "nicolas@hotmail.com", first_name: "Nicolas", last_name: "Nève de Mévergnies", password: "123456")
 user6.photo.attach(io: file, filename: "avatar_nicolas.png", content_type: "image/jpeg")
 user6.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/154889212?v=4')
-user7 = User.create(email: "pauline@test.com", first_name: "Pauline", last_name: "van Rijckevorsel", password: "123456")
+user7 = User.create(email: "pauline@hotmail.com", first_name: "Pauline", last_name: "van Rijckevorsel", password: "123456")
 user7.photo.attach(io: file, filename: "avatar_pauline.png", content_type: "image/jpeg")
 user7.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/156318922?v=4')
-user8 = User.create(email: "caroline@test.com", first_name: "Caroline", last_name: "Deuse", password: "123456")
+user8 = User.create(email: "caroline@hotmail.com", first_name: "Caroline", last_name: "Deuse", password: "123456")
 user8.photo.attach(io: file, filename: "avatar_caroline.png", content_type: "image/jpeg")
 user8.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/156615838?v=4')
-user9 = User.create(email: "geoffroy@test.com", first_name: "Geoffroy", last_name: "de C.", password: "123456")
+user9 = User.create(email: "geoffroy@hotmail.com", first_name: "Geoffroy", last_name: "de C.", password: "123456")
 user9.photo.attach(io: file, filename: "avatar_geoffroy.png", content_type: "image/jpeg")
 user9.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/70776288?v=4')
-user10 = User.create(email: "pedro@test.com", first_name: "Pedro", last_name: "Pan", password: "123456")
+user10 = User.create(email: "pedro@hotmail.com", first_name: "Pedro", last_name: "Pan", password: "123456")
 user10.photo.attach(io: file, filename: "avatar_pedro.png", content_type: "image/jpeg")
 user10.save!
 
