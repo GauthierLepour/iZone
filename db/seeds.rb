@@ -48,9 +48,9 @@ user4 = User.create(email: "jonathan@test.com", first_name: "Jonathan", last_nam
 user4.photo.attach(io: file, filename: "avatar_jonathan.png", content_type: "image/jpeg")
 user4.save!
 
-file = URI.open('https://del.h-cdn.co/assets/17/07/3200x3200/square-1487365300-delish-ryan-gosling-getty-pascal.jpg')
-user5 = User.create(email: "gosling@test.com", first_name: "Ryan", last_name: "Gosling", password: "123456")
-user5.photo.attach(io: file, filename: "avatar_gosling.png", content_type: "image/jpeg")
+file = URI.open('https://avatars.githubusercontent.com/u/414418?v=4')
+user5 = User.create(email: "saunier@test.com", first_name: "Sébastien", last_name: "Saunier", password: "123456")
+user5.photo.attach(io: file, filename: "avatar_saunier.png", content_type: "image/jpeg")
 user5.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/124592546?v=4')
@@ -69,7 +69,7 @@ user8.photo.attach(io: file, filename: "avatar_caroline.png", content_type: "ima
 user8.save!
 
 file = URI.open('https://avatars.githubusercontent.com/u/156615838?v=4')
-user9 = User.create(email: "geoffroy@test.com", first_name: "Geoffroy", last_name: "de Cooman", password: "123456")
+user9 = User.create(email: "geoffroy@test.com", first_name: "Geoffroy", last_name: "de C.", password: "123456")
 user9.photo.attach(io: file, filename: "avatar_geoffroy.png", content_type: "image/jpeg")
 user9.save!
 
@@ -137,7 +137,7 @@ ride1 = Ride.create(departure_place: "Bd Hector Denis 338 b, 4000 Liège",
                     departure_time: "2024-03-16 08:00:00",
                     description: "No smoking in my car. But you can choose the
                     music if you want to. Also, my rabbit is sitting in the front seat.")
-Chatroom.create(name: "chat1", ride: ride1)
+Chatroom.create(name: "Yassir's ride", ride: ride1)
 
 ride2 = Ride.create(departure_place: "Rue du Patinage, 1190 Forest",
                     arrival_place: "Grote Markt 1, 2000 Antwerpen",
@@ -158,7 +158,7 @@ ride3 = Ride.create(departure_place: "Rue des Halles 4, 1000 Bruxelles",
                     departure_time: "2024-03-16 08:45:00",
                     description: "You need to apply some force on the handle if you open
                     the front passenger seat.")
-Chatroom.create(name: "chat3", ride: ride3)
+Chatroom.create(name: "Saunier's ride", ride: ride3)
 
 ride32 = Ride.create(departure_place: "Grote Markt 1, 2000 Antwerpen",
   arrival_place: "Rue des Halles 4, 1000 Bruxelles",
