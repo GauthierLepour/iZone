@@ -14,7 +14,7 @@
           <%= f.input :price %>
           <%= f.association :car, collection: current_user.cars, label_method: :to_label%>
           <%= f.input :description %>
-          <%= f.submit %>
+          <%= f.button :submit, class:"button-small" %>
       <% end %>
     </div>
     <div class="form" style="margin-left:-40px">
@@ -30,7 +30,7 @@
           <%= f.input :price %>
           <%= f.association :car, collection: current_user.cars, label_method: :to_label%>
           <%= f.input :description %>
-          <%= f.submit %>
+          <%= f.button :submit, class:"button-small" %>
       <% end %>
     </div>
     <button class="arrowUD">
