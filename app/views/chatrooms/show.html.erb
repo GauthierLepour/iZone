@@ -2,9 +2,11 @@
      data-controller="chatroom-subscription"
      data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
      data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-     <div class="d-flex justify-content-between">
+     <div class="d-flex align-items-start">
       <h2>#<%= @chatroom.name %></h2>
-      <%= link_to "Rename", edit_chatroom_path(@chatroom), class:"link-classic" %>
+      <%= link_to edit_chatroom_path(@chatroom) do%>
+        <p style="color:white; margin-left:8px"><i class="fa-solid fa-pen"></i></p>
+      <% end %>
 
      </div>
 
@@ -26,6 +28,8 @@
     placeholder: "Message ##{@chatroom.name}",
     wrapper_html: {class: "flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "button-send mb-3 ms-2" %>
+  <%= button_tag type: 'submit', class:"send-button" do%>
+    <i class="fa-solid fa-circle-arrow-right send-icon"></i>
+  <% end %>
 <% end %>
 </div>

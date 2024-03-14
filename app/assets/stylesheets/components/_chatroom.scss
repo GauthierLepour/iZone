@@ -46,11 +46,16 @@
 
 .sender-style {
   background-color: #F5E8C7;
+  border-radius: 25px 25px 0px 25px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .receiver-style {
   background-color: white;
-
+  border-radius: 25px 25px 25px 0px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .message-card {
