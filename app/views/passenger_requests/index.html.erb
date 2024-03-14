@@ -2,7 +2,7 @@
   <h3 class = "membership-list-title mt-2" style="text-align: center; ">My requests</h3>
   <div class="requests_container">
       <% if @passenger_requests.where(user: current_user).empty? %>
-        <p style="text-align: center; margin-top: 25px;">You have not received any requests yet.</p>
+        <p style="text-align: center; margin-top: 25px;">You haven't made any requests yet.</p>
       <% else %>
         <% @passenger_requests.each do |request|%>
           <% if request.user == current_user %>
