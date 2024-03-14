@@ -13,6 +13,8 @@ class PassengerRequestsController < ApplicationController
       notif = Notification.new(passenger_request: @passenger_request, user: @passenger_request.driver,
                                description: "wants to book a seat in your car!")
       notif.save!
+      @passenger_request.driver.notification_count += 1
+      @passenger_request.driver.save!
       redirect_to events_path
       flash[:notice] = "A request has been sent to the driver."
     end
@@ -28,6 +30,8 @@ class PassengerRequestsController < ApplicationController
     # We will need a if statement to send 2 different notif depending on the new status
     notif = Notification.new(passenger_request: @passenger_request, user: @passenger_request.user,
                              description: "has #{@passenger_request.status}ed your request.")
+    @passenger_request.user.notification_count += 1
+    @passenger_request.user.save!
     if @passenger_request.status == "accept"
       @passenger_request.user.memberships.find_by(event: @passenger_request.ride.event).update(role: "passenger")
 
