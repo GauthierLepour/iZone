@@ -3,7 +3,7 @@
     <%= link_to chatroom_path(chatroom), style:"text-decoration:none" do %>
       <div class="d-flex message-card">
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" style="width: 100px;">
           <%= cl_image_tag chatroom.ride.car.user.photo.key, class: "avatar-mess" %>
         </div>
 
