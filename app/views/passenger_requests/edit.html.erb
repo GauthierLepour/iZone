@@ -9,9 +9,16 @@
   </div>
   <p>
   </p>
+
+  <div class="d-flex flex-column mt-5 align-items-center"><p style="font-size:40px; margin-bottom:0; margin-top:100px ">
+  <h4><%= "#{@passenger_request.ride.seats - @passenger_request.ride.passenger_requests.where(status: "accept").size} / #{@passenger_request.ride.seats}" %></h4>
+    <h4>Seats remaining</h4>
+  </div>
+
+
   <div class="form">
     <%= simple_form_for @passenger_request do |f| %>
-      <div class="d-flex justify-content-around" style = "margin-top: 292px;">
+      <div class="d-flex justify-content-around" style = "margin-top: 152px;">
         <%= f.submit "Accept", name: "passenger_request[status]", value: "Accept", class: "button-classic", style:"color: green" %>
         <%= f.submit "Decline", name: "passenger_request[status]", value: "Decline", class: "button-classic", style:"color: red"%>
       </div>
