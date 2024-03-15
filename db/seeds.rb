@@ -96,8 +96,8 @@ file = URI.open("https://assets.newatlas.com/dims4/default/5eb889b/2147483647/st
 event1 = Event.create(name: "Flocon's birthday",
                       description: "My bunny is getting old... celebrating her birthday soon, please come at my house ! see ya friends ! (^o^)/",
                       address: "Ottignies-Louvain-La-Neuve",
-                      start_time: "2024-03-15 09:00:00",
-                      end_time: "2024-03-15 16:00:00",
+                      start_time: "2024-03-16 09:00:00",
+                      end_time: "2024-03-16 16:00:00",
                       user: user1)
 event1.photo.attach(io: file, filename: "rabbit_event.png", content_type: "image/jpeg")
 event1.save!
